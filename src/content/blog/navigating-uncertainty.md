@@ -1,5 +1,6 @@
 ---
 title: "Navigating Uncertainty: Harness the Power of Frequent Customer Feedback"
+description: "The untapped power of frequent customer feedback can help shine the path in a fast-moving world..."
 date: 2023-10-21
 author: Ben VG
 tags: ["Agile Methods", "Culture"]
