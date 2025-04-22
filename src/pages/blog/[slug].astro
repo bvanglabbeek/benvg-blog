@@ -2,53 +2,36 @@
 import Layout from '../../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-const { slug } = Astro.params;
-const allPosts = await getCollection('blog');
-const post = allPosts.find(post => post.slug === slug);
-
-if (!post) {
-  throw new Error(`Post not found for slug: ${slug}`);
-}
-
-const { Content, data: metadata } = post;
-
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
-  return posts.map(post => ({
+  return posts.map((post) => ({
     params: { slug: post.slug }
   }));
 }
+
+const { slug } = Astro.params;
+const allPosts = await getCollection('blog');
+const post = allPosts.find((p) => p.slug === slug);
+
+if (!post) {
+  throw new Error(`Post not found: ${slug}`);
+}
+
+const { Content, data: metadata } = post;
 ---
 
 <Layout title={metadata.title}>
-  <article style="max-width: 700px; margin: 2rem auto; padding: 0 1rem;">
+  <article style="max-width: 700px; margin: 2rem auto;">
     {metadata.image && (
-      <img src={metadata.image} alt={metadata.title} style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem;" />
+      <img src={metadata.image} alt={metadata.title} style="width: 100%; margin-bottom: 1rem; border-radius: 8px;" />
     )}
 
     <h1>{metadata.title}</h1>
     <p style="color: #666; font-size: 0.9rem;">
-      {new Date(metadata.pubDate).toLocaleDateString()} &nbsp;|&nbsp;
-      Written by <strong>{metadata.author}</strong>
+      {new Date(metadata.pubDate).toLocaleDateString()} • Written by <strong>{metadata.author}</strong>
     </p>
 
     {metadata.tags && (
-      <div style="margin-top: 0.75rem; margin-bottom: 1.5rem;">
+      <div style="margin-top: 1rem; margin-bottom: 2rem;">
         {metadata.tags.map(tag => (
-          <span style="
-            background: #f3f4f6;
-            color: #333;
-            font-size: 0.75rem;
-            padding: 4px 10px;
-            border-radius: 9999px;
-            margin-right: 0.5rem;
-          ">
-            {tag}
-          </span>
-        ))}
-      </div>
-    )}
-
-    <Content />
-  </article>
-</Layout>
+          <span style="background: #f0f0f0; padding: 4px 10px; margin-right: 0.5rem; border
