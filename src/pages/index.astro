@@ -8,7 +8,7 @@ const posts = [
     slug: "/blog/navigating-uncertainty",
     date: "2023-10-21",
     author: "Ben VG",
-    image: "https://via.placeholder.com/600x400?text=Sail+and+Mountains",
+    image: "https://via.placeholder.com/600x400?text=Ocean+Uncertainty",
     tags: ["Agile Methods", "Culture"]
   },
   {
@@ -32,64 +32,86 @@ const categories = [
 ];
 ---
 
-<Layout title="Ben van Glabbeek | Home">
-  <!-- Main Content Area -->
-  <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 2rem; max-width: 1200px; margin: 2rem auto;">
+<Layout title="Ben van Glabbeek">
+  <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 3rem; margin-top: 2rem;">
+
     <!-- Blog Posts -->
-    <section>
-      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
-        {posts.map(post => (
-          <article style="border-bottom: 1px solid #ddd; padding-bottom: 1rem;">
-            <h2><a href={post.slug} style="text-decoration: none; color: #333;">{post.title}</a></h2>
-            <p style="font-size: 0.875rem; color: #666;">
-              {new Date(post.date).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })} &nbsp; | &nbsp; Written by <strong>{post.author}</strong>
-            </p>
-            <img src={post.image} alt={post.title} style="width: 100%; margin: 1rem 0;" />
-            <p>{post.excerpt}</p>
+    <section style="display: flex; flex-direction: column; gap: 2rem;">
+      {posts.map(post => (
+        <article style="
+          background: white;
+          border: 1px solid #eee;
+          border-radius: 12px;
+          box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+          overflow: hidden;
+          transition: box-shadow 0.2s ease;
+        ">
+          <a href={post.slug} style="text-decoration: none; color: inherit;">
+            <img src={post.image} alt={post.title} style="width: 100%; height: auto; object-fit: cover;" />
+            <div style="padding: 1.5rem;">
+              <h2 style="font-size: 1.4rem; margin-top: 0;">{post.title}</h2>
+              <p style="font-size: 0.875rem; color: #666;">
+                {new Date(post.date).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })} &nbsp;|&nbsp;
+                Written by <strong>{post.author}</strong>
+              </p>
+              <p style="margin-top: 1rem;">{post.excerpt}</p>
 
-            <!-- Tags -->
-            <div style="font-size: 0.85rem; margin: 0.5rem 0;">
-              {post.tags.map(tag => (
-                <span style="background: #f4f4f4; padding: 0.2rem 0.5rem; margin-right: 0.5rem; border-radius: 4px;">{tag}</span>
-              ))}
+              <!-- Tags -->
+              <div style="margin-top: 1rem;">
+                {post.tags.map(tag => (
+                  <span style="
+                    display: inline-block;
+                    background: #f3f4f6;
+                    color: #111;
+                    font-size: 0.75rem;
+                    padding: 4px 10px;
+                    border-radius: 9999px;
+                    margin-right: 0.5rem;
+                  ">
+                    {tag}
+                  </span>
+                ))}
+              </div>
+
+              <a href={post.slug} style="
+                display: inline-block;
+                margin-top: 1rem;
+                background: #10b981;
+                color: white;
+                padding: 0.5rem 1rem;
+                border-radius: 6px;
+                font-weight: 600;
+                font-size: 0.9rem;
+              ">Read More</a>
             </div>
-
-            <a href={post.slug} style="display: inline-block; margin-top: 0.5rem; background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none;">Read More</a>
-          </article>
-        ))}
-      </div>
+          </a>
+        </article>
+      ))}
     </section>
 
     <!-- Sidebar -->
-    <aside style="padding-left: 1rem; border-left: 1px solid #eee;">
-      <!-- Recent Posts -->
+    <aside>
       <section style="margin-bottom: 2rem;">
-        <h3>Recent Posts</h3>
-        <ul style="list-style: none; padding: 0;">
+        <h3 style="font-size: 1.2rem;">Recent Posts</h3>
+        <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
           {recentPosts.map(title => (
-            <li style="margin-bottom: 0.5rem;">
-              <a href="#" style="color: #333;">{title}</a>
-            </li>
+            <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #333;">{title}</a></li>
           ))}
         </ul>
       </section>
 
-      <!-- Archives -->
       <section style="margin-bottom: 2rem;">
-        <h3>Archives</h3>
-        <ul style="list-style: none; padding: 0;">
+        <h3 style="font-size: 1.2rem;">Archives</h3>
+        <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
           {archives.map(archive => (
-            <li style="margin-bottom: 0.5rem;">
-              <a href="#" style="color: #333;">{archive}</a>
-            </li>
+            <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #333;">{archive}</a></li>
           ))}
         </ul>
       </section>
 
-      <!-- Categories -->
       <section>
-        <h3>Categories</h3>
-        <ul style="list-style: none; padding: 0;">
+        <h3 style="font-size: 1.2rem;">Categories</h3>
+        <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
           {categories.map(cat => (
             <li style="margin-bottom: 0.5rem;">
               <a href={`/category/${cat.name.toLowerCase().replace(/\s/g, '-')}`} style="color: #333;">
