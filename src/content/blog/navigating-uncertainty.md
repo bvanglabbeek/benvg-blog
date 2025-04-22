@@ -5,7 +5,6 @@ date: 2023-10-21
 author: "Ben VG"
 tags: ["Agile Methods", "Culture"]
 image: "/blog-images/navigating-uncertainty.png"
-excerpt: "The untapped power of frequent customer feedback can help shine the path in a fast-moving world..."
 ---
 
 Do you ever feel lost in the ever-changing business landscape? You're not alone. Navigating this ever-changing world can feel like an impossible task. The untapped power of frequent customer feedback can help shine the path. As wonderful as feedback is, it's overwhelming. How do you structure it, organize, and absorb it in an effective way?
