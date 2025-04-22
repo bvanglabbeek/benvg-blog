@@ -21,8 +21,8 @@ const { title = "My Blog" } = Astro.props;
         --font-body: 'Inter', sans-serif;
         --color-bg: #ffffff;
         --color-text: #222;
-        --color-accent: #3b82f6;
-        --max-width: 800px;
+        --color-accent: #10b981;
+        --max-width: 1200px;
       }
 
       body {
@@ -31,7 +31,6 @@ const { title = "My Blog" } = Astro.props;
         background: var(--color-bg);
         color: var(--color-text);
         line-height: 1.6;
-        padding: 1rem;
       }
 
       a {
@@ -43,32 +42,71 @@ const { title = "My Blog" } = Astro.props;
         text-decoration: underline;
       }
 
-      header {
-        text-align: center;
+      .site-header {
+        background: #2d2f31;
+        color: white;
         padding: 2rem 1rem;
+        text-align: center;
+      }
+
+      .site-header h1 {
+        margin: 0;
+        font-size: 2rem;
+      }
+
+      .site-header p {
+        font-style: italic;
+        margin: 0.5rem 0 1.5rem;
+        font-size: 1rem;
+        color: #ccc;
+      }
+
+      .nav-links {
+        display: flex;
+        justify-content: center;
+        flex-wrap: wrap;
+        gap: 1.5rem;
+        font-size: 1rem;
+        margin-top: 1rem;
+      }
+
+      .nav-links a {
+        color: white;
+        text-decoration: underline;
       }
 
       main {
         max-width: var(--max-width);
-        margin: 0 auto;
-        padding-bottom: 4rem;
+        margin: 2rem auto;
+        padding: 0 1rem;
       }
 
       footer {
         text-align: center;
         font-size: 0.875rem;
         color: #999;
-        margin-top: 2rem;
+        margin-top: 3rem;
+        padding-bottom: 2rem;
       }
     </style>
   </head>
   <body>
-    <header>
-      <h1>{title}</h1>
+    <header class="site-header">
+      <h1>Ben van Glabbeek</h1>
+      <p>“If you want to build a ship... teach them to yearn for the vast and endless sea.” – Antoine de Saint-Exupéry</p>
+      <nav class="nav-links">
+        <a href="/">Home</a>
+        <a href="/trail">Appalachian Trail</a>
+        <a href="/books">Books</a>
+        <a href="/digital">Transcen.Digital</a>
+        <a href="/about">About Me</a>
+      </nav>
     </header>
+
     <main>
       <slot />
     </main>
+
     <footer>
       &copy; {new Date().getFullYear()} – benvg.com
     </footer>
