@@ -1,42 +1,117 @@
 ---
-import Layout from '../layouts/Layout.astro'
+import Layout from '../layouts/Layout.astro';
 
 const posts = [
   {
-    title: "Rebuilding My Blog with Astro",
-    excerpt: "Why I'm moving away from WordPress and what I'm learning along the way.",
-    slug: "/blog/rebuilding-my-blog",
-    date: "2025-04-20",
-    image: "https://via.placeholder.com/600x300?text=Astro+Blog"
+    title: "Navigating Uncertainty: Harness the Power of Frequent Custom...",
+    excerpt: "Do you ever feel lost in the ever-changing business landscape? You’re not alone. Navigating this ever-changing world can feel like an impossible task...",
+    slug: "/blog/navigating-uncertainty",
+    date: "2023-10-21",
+    author: "Ben VG",
+    image: "https://via.placeholder.com/600x400?text=Sail+and+Mountains",
+    tags: ["Agile Methods", "Culture"]
   },
   {
-    title: "Intro to Cloudflare Workers",
-    excerpt: "A beginner's look at how Cloudflare Workers can power your static sites.",
-    slug: "/blog/cloudflare-workers",
-    date: "2025-04-15",
-    image: "https://via.placeholder.com/600x300?text=Cloudflare+Workers"
+    title: "My New Cozy Blanket",
+    excerpt: "It’s a tranquil evening, with a crackling fire in the background. You are comfortably nestled on the couch, free to choose your adventure...",
+    slug: "/blog/my-new-cozy-blanket",
+    date: "2023-07-30",
+    author: "Ben VG",
+    image: "https://via.placeholder.com/600x400?text=Cozy+Blanket",
+    tags: ["AI"]
   }
+];
+
+const recentPosts = posts.map(p => p.title);
+const archives = ["October 2023", "July 2023", "April 2018", "September 2016"];
+const categories = [
+  { name: "Agile Methods", count: 4 },
+  { name: "AI", count: 1 },
+  { name: "Appalachian Trail", count: 1 },
+  { name: "Culture", count: 4 }
 ];
 ---
 
-<Layout title="benvg's Dev Blog">
-  <section style="text-align: center; margin-bottom: 3rem;">
-    <h2>Welcome to My Dev Blog</h2>
-    <p>Exploring Astro, Cloudflare, and building a better web – one post at a time.</p>
-  </section>
+<Layout title="Ben van Glabbeek">
+  <!-- Header Navigation (styled like the screenshot's dark header) -->
+  <div style="background: #2d2f31; color: white; padding: 2rem 1rem; text-align: center;">
+    <h1 style="margin: 0;">Ben van Glabbeek</h1>
+    <p style="margin: 0.5rem 0 1.5rem; font-style: italic;">“If you want to build a ship... teach them to yearn for the vast and endless sea.” – Antoine de Saint-Exupéry</p>
+    <nav style="display: flex; justify-content: center; gap: 1.5rem;">
+      <a href="/" style="color: white; text-decoration: none;">Home</a>
+      <a href="/trail" style="color: white;">Appalachian Trail</a>
+      <a href="/books" style="color: white;">Books</a>
+      <a href="/digital" style="color: white;">Transcen.Digital</a>
+      <a href="/about" style="color: white;">About Me</a>
+    </nav>
+  </div>
 
-  <section style="display: grid; gap: 2rem; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));">
-    {posts.map(post => (
-      <article style="border: 1px solid #eee; border-radius: 8px; overflow: hidden; box-shadow: 0 2px 5px rgba(0,0,0,0.05);">
-        <a href={post.slug}>
-          <img src={post.image} alt={post.title} style="width: 100%; display: block;" />
-        </a>
-        <div style="padding: 1rem;">
-          <h3><a href={post.slug}>{post.title}</a></h3>
-          <p style="color: #666; font-size: 0.875rem;">{new Date(post.date).toDateString()}</p>
-          <p>{post.excerpt}</p>
-        </div>
-      </article>
-    ))}
-  </section>
+  <!-- Main Content Area -->
+  <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 2rem; max-width: 1200px; margin: 2rem auto;">
+    <!-- Blog Posts -->
+    <section>
+      <div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 2rem;">
+        {posts.map(post => (
+          <article style="border-bottom: 1px solid #ddd; padding-bottom: 1rem;">
+            <h2><a href={post.slug} style="text-decoration: none; color: #333;">{post.title}</a></h2>
+            <p style="font-size: 0.875rem; color: #666;">
+              {new Date(post.date).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })} &nbsp; | &nbsp; Written by <strong>{post.author}</strong>
+            </p>
+            <img src={post.image} alt={post.title} style="width: 100%; margin: 1rem 0;" />
+            <p>{post.excerpt}</p>
+
+            <!-- Tags -->
+            <div style="font-size: 0.85rem; margin: 0.5rem 0;">
+              {post.tags.map(tag => (
+                <span style="background: #f4f4f4; padding: 0.2rem 0.5rem; margin-right: 0.5rem; border-radius: 4px;">{tag}</span>
+              ))}
+            </div>
+
+            <a href={post.slug} style="display: inline-block; margin-top: 0.5rem; background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 5px; text-decoration: none;">Read More</a>
+          </article>
+        ))}
+      </div>
+    </section>
+
+    <!-- Sidebar -->
+    <aside style="padding-left: 1rem; border-left: 1px solid #eee;">
+      <!-- Recent Posts -->
+      <section style="margin-bottom: 2rem;">
+        <h3>Recent Posts</h3>
+        <ul style="list-style: none; padding: 0;">
+          {recentPosts.map(title => (
+            <li style="margin-bottom: 0.5rem;">
+              <a href="#" style="color: #333;">{title}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- Archives -->
+      <section style="margin-bottom: 2rem;">
+        <h3>Archives</h3>
+        <ul style="list-style: none; padding: 0;">
+          {archives.map(archive => (
+            <li style="margin-bottom: 0.5rem;">
+              <a href="#" style="color: #333;">{archive}</a>
+            </li>
+          ))}
+        </ul>
+      </section>
+
+      <!-- Categories -->
+      <section>
+        <h3>Categories</h3>
+        <ul style="list-style: none; padding: 0;">
+          {categories.map(cat => (
+            <li style="margin-bottom: 0.5rem;">
+              <a href={`/category/${cat.name.toLowerCase().replace(/\s/g, '-')}`} style="color: #333;">
+                {cat.name} ({cat.count})
+              </a>
+            </li>
+          ))}
+        </ul>
+      </section>
+    </aside>
+  </div>
 </Layout>
