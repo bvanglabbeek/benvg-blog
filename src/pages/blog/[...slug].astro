@@ -1,21 +1,55 @@
 ---
-import { type CollectionEntry, getCollection } from 'astro:content';
-import BlogPost from '../../layouts/BlogPost.astro';
-import { render } from 'astro:content';
+import Layout from '../../layouts/Layout.astro';
 
-export async function getStaticPaths() {
-	const posts = await getCollection('blog');
-	return posts.map((post) => ({
-		params: { slug: post.id },
-		props: post,
-	}));
+// Get the slug from the URL
+const { slug } = Astro.params;
+
+// Import all markdown blog files
+const allPosts = import.meta.glob('../../content/blog/*.md');
+
+// Match the right post by slug
+const matchedPost = Object.entries(allPosts).find(([path]) =>
+  path.includes(`${slug}.md`)
+);
+
+if (!matchedPost) {
+  throw new Error(`Post not found for slug: ${slug}`);
 }
-type Props = CollectionEntry<'blog'>;
 
-const post = Astro.props;
-const { Content } = await render(post);
+const { default: Content, metadata } = await matchedPost[1]();
 ---
 
-<BlogPost {...post.data}>
-	<Content />
-</BlogPost>
+<Layout title={metadata.title}>
+  <article style="max-width: 700px; margin: 2rem auto; padding: 0 1rem;">
+    {metadata.image && (
+      <img src={metadata.image} alt={metadata.title} style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem;" />
+    )}
+    
+    <h1>{metadata.title}</h1>
+    <p style="color: #666; font-size: 0.9rem;">
+      {new Date(metadata.date).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })} &nbsp;|&nbsp;
+      Written by <strong>{metadata.author}</strong>
+    </p>
+
+    {metadata.tags && (
+      <div style="margin-top: 0.75rem; margin-bottom: 1.5rem;">
+        {metadata.tags.map(tag => (
+          <span style="
+            background: #f3f4f6;
+            color: #333;
+            font-size: 0.75rem;
+            padding: 4px 10px;
+            border-radius: 9999px;
+            margin-right: 0.5rem;
+          ">
+            {tag}
+          </span>
+        ))}
+      </div>
+    )}
+
+    <div style="margin-top: 1.5rem;">
+      <Content />
+    </div>
+  </article>
+</Layout>

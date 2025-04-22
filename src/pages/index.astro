@@ -1,34 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
 
-const posts = [
-  {
-    title: "Navigating Uncertainty: Harness the Power of Frequent Custom...",
-    excerpt: "Do you ever feel lost in the ever-changing business landscape? You’re not alone. Navigating this ever-changing world can feel like an impossible task...",
-    slug: "/blog/navigating-uncertainty",
-    date: "2023-10-21",
-    author: "Ben VG",
-    image: "https://via.placeholder.com/600x400?text=Ocean+Uncertainty",
-    tags: ["Agile Methods", "Culture"]
-  },
-  {
-    title: "My New Cozy Blanket",
-    excerpt: "It’s a tranquil evening, with a crackling fire in the background. You are comfortably nestled on the couch, free to choose your adventure...",
-    slug: "/blog/my-new-cozy-blanket",
-    date: "2023-07-30",
-    author: "Ben VG",
-    image: "https://via.placeholder.com/600x400?text=Cozy+Blanket",
-    tags: ["AI"]
-  }
-];
+// Dynamically load blog posts from Markdown files
+const postImports = import.meta.glob('../content/blog/*.md');
+const postPromises = Object.entries(postImports).map(async ([path, resolver]) => {
+  const { metadata } = await resolver();
+  return {
+    ...metadata,
+    slug: path.split('/').pop().replace('.md', '')
+  };
+});
+const posts = (await Promise.all(postPromises))
+  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // Newest first
 
-const recentPosts = posts.map(p => p.title);
+// Sidebar placeholders (optional: make dynamic later)
+const recentPosts = posts.slice(0, 5).map(p => ({ title: p.title, slug: p.slug }));
 const archives = ["October 2023", "July 2023", "April 2018", "September 2016"];
 const categories = [
   { name: "Agile Methods", count: 4 },
-  { name: "AI", count: 1 },
-  { name: "Appalachian Trail", count: 1 },
-  { name: "Culture", count: 4 }
+  { name: "AI", count: 2 },
+  { name: "Culture", count: 2 }
 ];
 ---
 
@@ -46,8 +37,10 @@ const categories = [
           overflow: hidden;
           transition: box-shadow 0.2s ease;
         ">
-          <a href={post.slug} style="text-decoration: none; color: inherit;">
-            <img src={post.image} alt={post.title} style="width: 100%; height: auto; object-fit: cover;" />
+          <a href={`/blog/${post.slug}`} style="text-decoration: none; color: inherit;">
+            {post.image && (
+              <img src={post.image} alt={post.title} style="width: 100%; height: auto; object-fit: cover;" />
+            )}
             <div style="padding: 1.5rem;">
               <h2 style="font-size: 1.4rem; margin-top: 0;">{post.title}</h2>
               <p style="font-size: 0.875rem; color: #666;">
@@ -57,23 +50,25 @@ const categories = [
               <p style="margin-top: 1rem;">{post.excerpt}</p>
 
               <!-- Tags -->
-              <div style="margin-top: 1rem;">
-                {post.tags.map(tag => (
-                  <span style="
-                    display: inline-block;
-                    background: #f3f4f6;
-                    color: #111;
-                    font-size: 0.75rem;
-                    padding: 4px 10px;
-                    border-radius: 9999px;
-                    margin-right: 0.5rem;
-                  ">
-                    {tag}
-                  </span>
-                ))}
-              </div>
+              {post.tags && (
+                <div style="margin-top: 1rem;">
+                  {post.tags.map(tag => (
+                    <span style="
+                      display: inline-block;
+                      background: #f3f4f6;
+                      color: #111;
+                      font-size: 0.75rem;
+                      padding: 4px 10px;
+                      border-radius: 9999px;
+                      margin-right: 0.5rem;
+                    ">
+                      {tag}
+                    </span>
+                  ))}
+                </div>
+              )}
 
-              <a href={post.slug} style="
+              <a href={`/blog/${post.slug}`} style="
                 display: inline-block;
                 margin-top: 1rem;
                 background: #10b981;
@@ -94,8 +89,10 @@ const categories = [
       <section style="margin-bottom: 2rem;">
         <h3 style="font-size: 1.2rem;">Recent Posts</h3>
         <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
-          {recentPosts.map(title => (
-            <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #333;">{title}</a></li>
+          {recentPosts.map(post => (
+            <li style="margin-bottom: 0.5rem;">
+              <a href={`/blog/${post.slug}`} style="color: #333;">{post.title}</a>
+            </li>
           ))}
         </ul>
       </section>
@@ -104,7 +101,9 @@ const categories = [
         <h3 style="font-size: 1.2rem;">Archives</h3>
         <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
           {archives.map(archive => (
-            <li style="margin-bottom: 0.5rem;"><a href="#" style="color: #333;">{archive}</a></li>
+            <li style="margin-bottom: 0.5rem;">
+              <a href="#" style="color: #333;">{archive}</a>
+            </li>
           ))}
         </ul>
       </section>
