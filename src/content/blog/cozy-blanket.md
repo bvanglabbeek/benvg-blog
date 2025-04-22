@@ -1,7 +1,7 @@
 ---
 title: "My New Cozy Blanket"
 description: "It’s a tranquil evening, with a crackling fire in the background. You are comfortably nestled on the couch..."
-date: 2023-07-30
+pubDate: 2023-07-30
 author: "Ben VG"
 tags: ["AI"]
 image: "/blog-images/cozy-blanket.png"
