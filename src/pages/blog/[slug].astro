@@ -1,22 +1,23 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-// Get the slug from the URL
 const { slug } = Astro.params;
+const allPosts = await getCollection('blog');
+const post = allPosts.find(post => post.slug === slug);
 
-// Import all markdown blog files
-const allPosts = import.meta.glob('../../content/blog/*.md');
-
-// Match the right post by slug
-const matchedPost = Object.entries(allPosts).find(([path]) =>
-  path.includes(`${slug}.md`)
-);
-
-if (!matchedPost) {
+if (!post) {
   throw new Error(`Post not found for slug: ${slug}`);
 }
 
-const { default: Content, metadata } = await matchedPost[1]();
+const { Content, data: metadata } = post;
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.slug }
+  }));
+}
 ---
 
 <Layout title={metadata.title}>
@@ -24,10 +25,10 @@ const { default: Content, metadata } = await matchedPost[1]();
     {metadata.image && (
       <img src={metadata.image} alt={metadata.title} style="width: 100%; border-radius: 8px; margin-bottom: 1.5rem;" />
     )}
-    
+
     <h1>{metadata.title}</h1>
     <p style="color: #666; font-size: 0.9rem;">
-      {new Date(metadata.date).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })} &nbsp;|&nbsp;
+      {new Date(metadata.pubDate).toLocaleDateString()} &nbsp;|&nbsp;
       Written by <strong>{metadata.author}</strong>
     </p>
 
@@ -48,8 +49,6 @@ const { default: Content, metadata } = await matchedPost[1]();
       </div>
     )}
 
-    <div style="margin-top: 1.5rem;">
-      <Content />
-    </div>
+    <Content />
   </article>
 </Layout>
