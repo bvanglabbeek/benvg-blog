@@ -4,7 +4,7 @@ description: "It’s a tranquil evening, with a crackling fire in the background
 pubDate: "2023-07-30"
 author: "Ben VG"
 tags: ["AI"]
-image: "/blog-images/cozy-blanket.png"
+image: "/blog-images/cozy-blanket.jpg"
 ---
 
 It's a tranquil evening, with a crackling fire in the background. You are comfortably nestled on the couch, free to choose your adventure, whether it's diving into a book, enjoying a captivating movie, or simply dozing off. These moments of blissful relaxation and safety are rare gems in our fast-paced lives.
