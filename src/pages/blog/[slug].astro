@@ -1,37 +1,31 @@
 ---
 import Layout from '../../layouts/Layout.astro';
-import { getCollection } from 'astro:content';
-
-export async function getStaticPaths() {
-  const posts = await getCollection('blog');
-  return posts.map((post) => ({
-    params: { slug: post.slug }
-  }));
-}
+import { getEntryBySlug } from 'astro:content';
 
 const { slug } = Astro.params;
-const allPosts = await getCollection('blog');
-const post = allPosts.find((p) => p.slug === slug);
+const entry = await getEntryBySlug('blog', slug);
 
-if (!post) {
-  throw new Error(`Post not found: ${slug}`);
+if (!entry) {
+  throw new Error(`❌ Post not found: ${slug}`);
 }
 
-const { Content, data: metadata } = post;
+const { Content, frontmatter: metadata } = await entry.render();
+
+export async function getStaticPaths() {
+  return [
+    { params: { slug: 'cozy-blanket' } },
+    { params: { slug: 'navigating-uncertainty' } }
+  ];
+}
 ---
 
 <Layout title={metadata.title}>
   <article style="max-width: 700px; margin: 2rem auto;">
-    {metadata.image && (
-      <img src={metadata.image} alt={metadata.title} style="width: 100%; margin-bottom: 1rem; border-radius: 8px;" />
-    )}
-
     <h1>{metadata.title}</h1>
     <p style="color: #666; font-size: 0.9rem;">
       {new Date(metadata.pubDate).toLocaleDateString()} • Written by <strong>{metadata.author}</strong>
     </p>
 
-    {metadata.tags && (
-      <div style="margin-top: 1rem; margin-bottom: 2rem;">
-        {metadata.tags.map(tag => (
-          <span style="background: #f0f0f0; padding: 4px 10px; margin-right: 0.5rem; border
+    <Content />
+  </article>
+</Layout>

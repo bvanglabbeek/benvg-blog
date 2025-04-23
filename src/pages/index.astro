@@ -1,20 +1,17 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { getCollection } from 'astro:content';
 
-// Dynamically load blog posts from Markdown files
-const postImports = import.meta.glob('../content/blog/*.md');
-const postPromises = Object.entries(postImports).map(async ([path, resolver]) => {
-  const { metadata } = await resolver();
-  return {
-    ...metadata,
-    slug: path.split('/').pop().replace('.md', '')
-  };
-});
-const posts = (await Promise.all(postPromises))
-  .sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime()); // Newest first
+// Load blog posts from content collection
+const posts = (await getCollection('blog'))
+  .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 
-// Sidebar placeholders (optional: make dynamic later)
-const recentPosts = posts.slice(0, 5).map(p => ({ title: p.title, slug: p.slug }));
+// Sidebar content (optional to make dynamic)
+const recentPosts = posts.slice(0, 5).map(p => ({
+  title: p.data.title,
+  slug: p.slug
+}));
+
 const archives = ["October 2023", "July 2023", "April 2018", "September 2016"];
 const categories = [
   { name: "Agile Methods", count: 4 },
@@ -38,21 +35,25 @@ const categories = [
           transition: box-shadow 0.2s ease;
         ">
           <a href={`/blog/${post.slug}`} style="text-decoration: none; color: inherit;">
-            {post.image && (
-              <img src={post.image} alt={post.title} style="width: 100%; height: auto; object-fit: cover;" />
+            {post.data.image && (
+              <img src={post.data.image} alt={post.data.title} style="width: 100%; height: auto; object-fit: cover;" />
             )}
             <div style="padding: 1.5rem;">
-              <h2 style="font-size: 1.4rem; margin-top: 0;">{post.title}</h2>
+              <h2 style="font-size: 1.4rem; margin-top: 0;">{post.data.title}</h2>
               <p style="font-size: 0.875rem; color: #666;">
-                {new Date(post.date).toLocaleDateString(undefined, { month: 'long', day: 'numeric', year: 'numeric' })} &nbsp;|&nbsp;
-                Written by <strong>{post.author}</strong>
+                {new Date(post.data.pubDate).toLocaleDateString(undefined, {
+                  month: 'long',
+                  day: 'numeric',
+                  year: 'numeric'
+                })} &nbsp;|&nbsp;
+                Written by <strong>{post.data.author}</strong>
               </p>
-              <p style="margin-top: 1rem;">{post.excerpt}</p>
+              <p style="margin-top: 1rem;">{post.data.description}</p>
 
               <!-- Tags -->
-              {post.tags && (
+              {post.data.tags && (
                 <div style="margin-top: 1rem;">
-                  {post.tags.map(tag => (
+                  {post.data.tags.map(tag => (
                     <span style="
                       display: inline-block;
                       background: #f3f4f6;
