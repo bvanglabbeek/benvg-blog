@@ -28,14 +28,6 @@ const trailPosts = (await getCollection('blog'))
             )}
             <div style="padding: 1.5rem;">
               <h2 style="font-size: 1.4rem; margin-top: 0;">{post.data.title}</h2>
-              <p style="font-size: 0.875rem; color: #666;">
-                {new Date(post.data.pubDate).toLocaleDateString(undefined, {
-                  month: 'long',
-                  day: 'numeric',
-                  year: 'numeric'
-                })} &nbsp;|&nbsp;
-                Written by <strong>{post.data.author}</strong>
-              </p>
               <p style="margin-top: 1rem;">{post.data.description}</p>
 
               {post.data.tags && (

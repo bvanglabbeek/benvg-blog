@@ -16,7 +16,7 @@ const { title = "My Blog" } = Astro.props;
       rel="stylesheet"
     />
 
-    <style>
+    <style global>
       :root {
         --font-body: 'Inter', sans-serif;
         --color-bg: #ffffff;
@@ -73,6 +73,15 @@ const { title = "My Blog" } = Astro.props;
       .nav-links a {
         color: white;
         text-decoration: underline;
+      }
+
+      article img {
+        max-width: 100%;
+        height: auto;
+        margin: 1.5rem 0;
+        display: block;
+        object-fit: contain;
+        max-height: 600px; 
       }
 
       main {

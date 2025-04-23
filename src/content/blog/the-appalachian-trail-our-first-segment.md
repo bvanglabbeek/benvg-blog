@@ -7,8 +7,6 @@ tags: ["trail"]
 image: "/blog-images/the-appalachian-trail-our-first-segment.jpg"
 ---
 
-![Springer Mountain Plaque](http://www.benvg.com/wp-content/uploads/2023/07/IMG_8509-1-1024x719.jpeg)
-
 At the tender age of 13, the whispering call of the Appalachian Trail beckoned me after reading about it in Scouts. This 2,100-mile titan, a winding path stretching from Georgia to Maine, became an impossible dream in my Oklahoma childhood. Now, years later and nestled in Atlanta's hustle, my son, Miles, and I are answering that call, one trek at a time.
 
 **Our first segment: Springer Mountain to Hightower Gap**
@@ -28,7 +26,7 @@ Our next challenge: carrying backpacks loaded with 20–30 lbs. of gear for a 4-
 - Complete: 8.6 miles  
 - Remaining: 2,185.7 miles to go
 
-![Ferns Along the Way](http://www.benvg.com/wp-content/uploads/2023/07/IMG_9112-scaled.jpeg)
+![Ferns Along the Way](/blog-images/ferns-long-the-way.jpg)
 
 **Our first major test: a two-day, 12-mile journey to Woody Gap**
 

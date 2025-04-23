@@ -23,9 +23,7 @@ const metadata = entry.data;
 <Layout title={metadata.title}>
   <article style="max-width: 700px; margin: 2rem auto;">
     <h1>{metadata.title}</h1>
-    <p style="color: #666; font-size: 0.9rem;">
-      {new Date(metadata.pubDate).toLocaleDateString()} • Written by <strong>{metadata.author}</strong>
-    </p>
+     <img src={metadata.image} alt={metadata.title} style="width: 100%; height: auto; object-fit: cover;" />
     <Content />
   </article>
 </Layout>
