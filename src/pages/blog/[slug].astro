@@ -1,0 +1,31 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { getEntryBySlug, getCollection } from 'astro:content';
+
+export async function getStaticPaths() {
+  const posts = await getCollection('blog');
+  return posts.map(post => ({
+    params: { slug: post.slug }
+  }));
+}
+
+const { slug } = Astro.params;
+const entry = await getEntryBySlug('blog', slug);
+
+if (!entry) {
+  throw new Error(`❌ Post not found: ${slug}`);
+}
+
+const { Content } = await entry.render();
+const metadata = entry.data;
+---
+
+<Layout title={metadata.title}>
+  <article style="max-width: 700px; margin: 2rem auto;">
+    <h1>{metadata.title}</h1>
+    <p style="color: #666; font-size: 0.9rem;">
+      {new Date(metadata.pubDate).toLocaleDateString()} • Written by <strong>{metadata.author}</strong>
+    </p>
+    <Content />
+  </article>
+</Layout>

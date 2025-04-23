@@ -3,15 +3,10 @@ import { defineConfig } from "astro/config";
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 
-import cloudflare from "@astrojs/cloudflare";
-
 // https://astro.build/config
 export default defineConfig({
-  site: "https://example.com",
+  site: "https://benvanglabbeek.com", // ← optional but nice to personalize
   integrations: [mdx(), sitemap()],
-  adapter: cloudflare({
-    platformProxy: {
-      enabled: true,
-    },
-  }),
+  output: "static" // 👈 explicitly tell Astro you're building a static site
 });
+
