@@ -7,6 +7,9 @@ import sitemap from "@astrojs/sitemap";
 export default defineConfig({
   site: "https://benvanglabbeek.com", // ← optional but nice to personalize
   integrations: [mdx(), sitemap()],
+    redirects: {
+    '/about-me': '/about',
+  },
   output: "static" // 👈 explicitly tell Astro you're building a static site
 });
 

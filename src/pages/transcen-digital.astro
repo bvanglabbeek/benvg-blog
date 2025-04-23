@@ -3,15 +3,48 @@ import Layout from '../layouts/Layout.astro';
 ---
 
 <Layout title="Digital">
-  <section
-    class="relative text-center text-white flex items-center justify-center"
-    style="min-height: 291px; background-image: url('/images/transcen.digital.jpg'); background-size: cover; background-position: center;"
-  >
-    <div class="bg-black bg-opacity-50 w-full h-full absolute top-0 left-0"></div>
-    <div class="relative z-10 px-4 py-16">
-      <h1 class="text-3xl font-bold">Navigate the Future</h1>
-    </div>
-  </section>
+<section
+  style="
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    min-height: 400px;
+    background-image: url('/images/transcen.digital.jpg');
+    background-size: cover;
+    background-position: center;
+  "
+>
+  <div
+    style="
+      position: absolute;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.6);
+    "
+  ></div>
+
+  <div style="position: relative; z-index: 10; padding: 2rem;">
+    <h1 style="
+      color: #fff;
+      font-size: 2.75rem;
+      font-weight: 800;
+      text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9);
+      margin: 0;
+    ">
+      Navigate the Future
+    </h1>
+    <p style="
+      margin-top: 0.75rem;
+      font-size: 1.25rem;
+      color: #fff;
+      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
+    ">
+      Design systems that deliver clarity, flow, and digital advantage
+    </p>
+  </div>
+</section>
+
 
   <section class="prose lg:prose-lg max-w-4xl mx-auto my-12 px-4">
     <p>
@@ -40,8 +73,10 @@ import Layout from '../layouts/Layout.astro';
       Ready to rethink how your organization works? Let’s talk about how we can make change real—and lasting.
     </p>
 
-    <div class="mt-10 text-center">
-      <p><em>[Contact form will go here]</em></p>
-    </div>
+    <h2>Let’s Connect</h2>
+    <p>
+      Want to talk transformation, talent, or anything else? Reach out to me on
+      <a href="https://www.linkedin.com/in/ben-van-glabbeek" target="_blank">LinkedIn</a>.
+    </p>
   </section>
 </Layout>

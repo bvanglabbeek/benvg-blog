@@ -3,7 +3,7 @@ title: "The Appalachian Trail - Our First Segment"
 description: "A father-son journey begins on the Appalachian Trail—starting with 20 miles of lessons, laughter, and a love for the woods."
 pubDate: "2023-07-15"
 author: "Ben VG"
-tags: ["trail"]
+tags: ["Appalachian Trail"]
 image: "/blog-images/the-appalachian-trail-our-first-segment.jpg"
 ---
 
@@ -32,7 +32,7 @@ Our next challenge: carrying backpacks loaded with 20–30 lbs. of gear for a 4-
 
 The Appalachian Trail can be a harsh master, offering steep ascents and descents, with fleeting moments of flat terrain acting as a merciful reprieve. The first segment was tough, as we struggled to adapt to the weight of our packs under the hot, humid conditions. We only had to go 6 miles, but they were grueling to our camp at Justus Creek. However, upon reaching camp, we were greeted by the sound of a babbling, spring-fed creek. We soaked our feet in the cool water and recharged before making dinner. Dinner was nothing special—just freeze-dried pasta. We capped our evening with rounds of cards. Miles is the luckiest card player, and after a few full houses, I decided to sleep off my losing streak.
 
-![Camp at Justus Creek](http://www.benvg.com/wp-content/uploads/2023/07/IMG_9177-scaled.jpeg)
+![Camp at Justus Creek](/blog-images/camp-at-justus-creek.jpg)
 
 The evening was dark—no moon, no stars—pitch black. It was comforting and a bit freaky at the same time. If it weren’t for the sweet sound of planes landing in ATL, we’d feel truly isolated. The night passed in chunks, marked by bathroom breaks and the restless rolling for the perfect spot on the air mattress.
 
@@ -42,7 +42,7 @@ As we neared the end of this leg, we came across a lookout atop a large granite 
 
 Oh, and we rewarded ourselves with a couple #2s with cheese, onion rings, and shakes.
 
-![Lookout Near Woody Gap](http://www.benvg.com/wp-content/uploads/2023/07/IMG_9196-scaled.jpeg)
+![Lookout Near Woody Gap](/blog-images/lookout-near-woody-gap.jpg)
 
 - Complete: 20.5 miles  
 - Remaining: 2,173.8 miles to go

@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 
 // Load and filter blog posts with the "trail" tag
 const trailPosts = (await getCollection('blog'))
-  .filter(post => post.data.tags?.includes('trail'))
+  .filter(post => post.data.tags?.includes('Appalachian Trail'))
   .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 ---
 
@@ -30,23 +30,6 @@ const trailPosts = (await getCollection('blog'))
               <h2 style="font-size: 1.4rem; margin-top: 0;">{post.data.title}</h2>
               <p style="margin-top: 1rem;">{post.data.description}</p>
 
-              {post.data.tags && (
-                <div style="margin-top: 1rem;">
-                  {post.data.tags.map(tag => (
-                    <span style="
-                      display: inline-block;
-                      background: #f3f4f6;
-                      color: #111;
-                      font-size: 0.75rem;
-                      padding: 4px 10px;
-                      border-radius: 9999px;
-                      margin-right: 0.5rem;
-                    ">
-                      {tag}
-                    </span>
-                  ))}
-                </div>
-              )}
 
               <a href={`/blog/${post.slug}`} style="
                 display: inline-block;
