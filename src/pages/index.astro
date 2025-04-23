@@ -4,7 +4,7 @@ import { getCollection } from 'astro:content';
 
 // Load blog posts from content collection
 const posts = (await getCollection('blog'))
-  .filter(post => !post.data.tags?.includes('trail'))
+  .filter(post => !post.data.tags?.includes('Appalachian Trail'))
   .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 
 // Sidebar content (optional to make dynamic)
