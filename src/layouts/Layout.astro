@@ -16,7 +16,7 @@ const { title = "My Blog" } = Astro.props;
       rel="stylesheet"
     />
 
-    <style>
+    <style global>
       :root {
         --font-body: 'Inter', sans-serif;
         --color-bg: #ffffff;
@@ -75,6 +75,15 @@ const { title = "My Blog" } = Astro.props;
         text-decoration: underline;
       }
 
+      article img {
+        max-width: 100%;
+        height: auto;
+        margin: 1.5rem 0;
+        display: block;
+        object-fit: contain;
+        max-height: 600px; 
+      }
+
       main {
         max-width: var(--max-width);
         margin: 2rem auto;
@@ -97,7 +106,6 @@ const { title = "My Blog" } = Astro.props;
       <nav class="nav-links">
         <a href="/">Home</a>
         <a href="/trail">Appalachian Trail</a>
-        <a href="/books">Books</a>
         <a href="/digital">Transcen.Digital</a>
         <a href="/about">About Me</a>
       </nav>

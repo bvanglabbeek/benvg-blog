@@ -2,34 +2,18 @@
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
 
-// Load blog posts from content collection
-const posts = (await getCollection('blog'))
-  .filter(post => !post.data.tags?.includes('trail'))
+// Load and filter blog posts with the "trail" tag
+const trailPosts = (await getCollection('blog'))
+  .filter(post => post.data.tags?.includes('trail'))
   .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
-
-// Sidebar content (optional to make dynamic)
-const recentPosts = posts.slice(0, 5).map(p => ({
-  title: p.data.title,
-  slug: p.slug
-}));
-
-
-// Categories from tags
-const tagCount = {};
-posts.forEach(post => {
-  (post.data.tags || []).forEach(tag => {
-    tagCount[tag] = (tagCount[tag] || 0) + 1;
-  });
-});
-const categories = Object.entries(tagCount).map(([name, count]) => ({ name, count }));
 ---
 
-<Layout title="Ben van Glabbeek">
+<Layout title="Trail Notes">
   <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 3rem; margin-top: 2rem;">
 
-    <!-- Blog Posts -->
+    <!-- Trail Posts -->
     <section style="display: flex; flex-direction: column; gap: 2rem;">
-      {posts.map(post => (
+      {trailPosts.map(post => (
         <article style="
           background: white;
           border: 1px solid #eee;
@@ -46,7 +30,6 @@ const categories = Object.entries(tagCount).map(([name, count]) => ({ name, coun
               <h2 style="font-size: 1.4rem; margin-top: 0;">{post.data.title}</h2>
               <p style="margin-top: 1rem;">{post.data.description}</p>
 
-              <!-- Tags -->
               {post.data.tags && (
                 <div style="margin-top: 1rem;">
                   {post.data.tags.map(tag => (
@@ -84,27 +67,10 @@ const categories = Object.entries(tagCount).map(([name, count]) => ({ name, coun
     <!-- Sidebar -->
     <aside>
       <section style="margin-bottom: 2rem;">
-        <h3 style="font-size: 1.2rem;">Recent Posts</h3>
-        <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
-          {recentPosts.map(post => (
-            <li style="margin-bottom: 0.5rem;">
-              <a href={`/blog/${post.slug}`} style="color: #333;">{post.title}</a>
-            </li>
-          ))}
-        </ul>
-      </section>
-
-      <section>
-        <h3 style="font-size: 1.2rem;">Categories</h3>
-        <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
-          {categories.map(cat => (
-            <li style="margin-bottom: 0.5rem;">
-              <a href={`/category/${cat.name.toLowerCase().replace(/\s/g, '-')}`} style="color: #333;">
-                {cat.name} ({cat.count})
-              </a>
-            </li>
-          ))}
-        </ul>
+        <h3 style="font-size: 1.2rem;">About This Section</h3>
+        <p style="font-size: 0.95rem;">
+          Trail Notes is where I capture the reflections, routes, and lessons learned from our Appalachian Trail hikes.
+        </p>
       </section>
     </aside>
   </div>
