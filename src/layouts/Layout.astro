@@ -1,5 +1,7 @@
 ---
 const { title = "My Blog" } = Astro.props;
+
+import Search from '../components/Search.astro';
 ---
 
 <html lang="en">
@@ -34,12 +36,16 @@ const { title = "My Blog" } = Astro.props;
       }
 
       a {
-        color: var(--color-accent);
+        color: inherit;
         text-decoration: none;
       }
 
       a:hover {
         text-decoration: underline;
+      }
+
+      article a {
+        color: #10b981;
       }
 
       .site-header {
@@ -109,6 +115,11 @@ const { title = "My Blog" } = Astro.props;
         <a href="/transcen-digital">Transcen.Digital</a>
         <a href="/about">About Me</a>
       </nav>
+
+      <div style="margin-top: 1rem;">
+        <Search />
+      </div>
+
     </header>
 
     <main>

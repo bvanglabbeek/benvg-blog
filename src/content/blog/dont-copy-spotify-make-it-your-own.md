@@ -1,6 +1,6 @@
 ---
 title: "Don’t Copy Spotify, Make it Your Own"
-description: "TWhat is the Spotify model? Spotify is more than just a great music streaming service, they recently shared a series of videos that describe their engineering focused culture. When I first came across these videos a few years ago, they gave a glimpse of the Spotify culture and how they build great teams. Spotify instills in their team autonomy..."
+description: "What is the Spotify model? Spotify is more than just a great music streaming service, they recently shared a series of videos that describe their engineering focused culture. When I first came across these videos a few years ago, they gave a glimpse of the Spotify culture and how they build great teams. Spotify instills in their team autonomy..."
 pubDate: "2016-09-09"
 author: "Ben VG"
 tags: ["Agile Methods"]
