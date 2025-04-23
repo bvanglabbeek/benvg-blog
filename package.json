@@ -20,6 +20,7 @@
     "@astrojs/sitemap": "3.3.0",
     "astro": "5.6.0",
     "astro-embed": "^0.9.0",
+    "gray-matter": "^4.0.3",
     "typescript": "5.8.2"
   },
   "devDependencies": {
@@ -27,11 +28,12 @@
   },
   "scripts": {
     "astro": "astro",
-    "build": "astro build",
-    "check": "astro build && tsc && wrangler deploy --dry-run",
-    "deploy": "astro build && wrangler deploy",
+    "build": "npm run generate:search && astro build",
+    "generate:search": "node ./tools/generateSearchIndex.js",
+    "check": "npm run generate:search && astro build && tsc && wrangler deploy --dry-run",
+    "deploy": "npm run generate:search && astro build && wrangler deploy",
     "dev": "astro dev",
-    "preview": "astro build && wrangler dev",
+    "preview": "npm run generate:search && astro build && wrangler dev",
     "types": "wrangler types"
   },
   "type": "module"
