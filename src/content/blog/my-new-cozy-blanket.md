@@ -43,5 +43,5 @@ Yes, there are challenges that we must address, and we should proceed with ethic
 
 ---
 
-If you're interested in learning more, take a look at my other works as I continue to explore what makes [people and organizations great](http://www.benvg.com/2023/07/we-all-want-to-be-explorers-and-dreamers/).
+If you're interested in learning more, take a look at my other works as I continue to explore what makes [people and organizations great](/blog/we-all-want-to-be-explorers-and-dreamers/).
 

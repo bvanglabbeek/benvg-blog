@@ -58,10 +58,6 @@ const readableTag = tag.replace(/-/g, ' ').replace(/\b\w/g, l => l.toUpperCase()
                 )}
                 <div style="padding: 1.5rem;">
                   <h2>{post.data.title}</h2>
-                  <p style="font-size: 0.875rem; color: #666;">
-                    {new Date(post.data.pubDate).toLocaleDateString()}
-                    &nbsp;|&nbsp; {post.data.author}
-                  </p>
                   <p>{post.data.description}</p>
                   <a href={`/blog/${post.slug}`} style="
                     display: inline-block;

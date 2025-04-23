@@ -1,0 +1,71 @@
+---
+title: "220/221 Whatever it Takes – The Birth of the VG Kanban"
+description: "Time for a new working agreement… As a father, working adult and someone that has way too many interests. My life can be a mess at times and all chaos has been managed because my spouse fills the cracks. She worried about dinner, going to the store, homework, karate practice and made our family operate like ..."
+pubDate: "2018-04-13"
+author: "Ben VG"
+tags: ["Agile Methods"]
+image: "/blog-images/the-birth-of-the-vg-kanban.jpg"
+---
+
+# Time for a New Working Agreement...
+
+As a father, working adult, and someone with way too many interests, my life can be a mess at times. And all that chaos? It was managed because my spouse filled the cracks. She worried about dinner, going to the store, homework, karate practice—and made our family operate like a well-tuned machine. I provided the funding, security, and a little silliness.
+
+But then she got a new job. She wanted to show more than our family what she had to offer. And with that change, we needed to amend our working agreement.
+
+I love the irony of life. I help teams with this exact transition—and now I got to live it. So I started thumbing through patterns and realized: we needed an information radar. We needed a kanban board to show us what’s going on.
+
+Anytime we try something new, we always say, “220/221, whatever it takes.” It’s a reference to [Mr. Mom](http://www.imdb.com/title/tt0085970/) when Jack Butler (Michael Keaton) is trying to show off that he knows what he’s doing—but he clearly doesn’t.
+
+We say it to each other to remind ourselves: even if this idea fails, we’ll never be as clueless as Jack Butler.  
+[Watch the clip](https://www.youtube.com/watch?v=iX3kxAA2L4Q)
+
+
+# The Challenge in Front of Us
+
+With both of us working full-time, we needed a system to keep each other informed:
+
+- What’s the plan for dinner (and who’s making it)?
+- Who’s got the kids today?
+- Any work or evening events?
+
+Each day we’d text or talk quickly, rinse and repeat. But we often had the same conversation 2–3 times. Half-listening, forgetting, double-buying spaghetti ingredients. Missing karate or birthday parties.
+
+Just like at work, when I'm faced with chaos, the solution often starts with [Super Sticky Post-It Notes](http://www.post-it.com/3M/en_US/post-it/products/~/Post-it-Products/Notes) and [Sharpies](http://www.sharpie.com/en-US/sharpie-markers/fine-point-permanent-marker-sp-00013--1). Combined, they’re one of the most powerful tools I know.
+
+
+# The Birth of the VG Kanban!
+
+It took a few iterations, but our family kanban board was born. Across the top: the days of the week. Down the side: types of activities—events, meals (what’s for dinner), and pickup/dropoff duties.
+
+Unlike previous attempts to get organized, this version was **adaptive**. If we didn’t like the format, we just changed it.
+
+
+# The Planning Session
+
+Every Sunday, my wife and I have a planning session to figure out the week. What’s for dinner, what events are happening, who’s picking up and dropping off. It doesn’t need to be perfect—it’s **directionally correct**.
+
+At the end of the session, one of us snaps a picture of the board and sends it to the other. That’s the plan. Done.
+
+
+# What About When Things Change?
+
+They always do.
+
+- “Oh, I forgot I have a meeting tomorrow.”
+- “There’s a conference I want to attend.”
+- “A buddy wants to grab a beer.”
+
+No problem. Meet at the board. Update the plan. If we both agree, we take a new photo and share it again. That becomes the plan. If things change? Re-plan.
+
+Just make sure you’re both in it together.
+
+
+# What We Learned
+
+- Keep the board somewhere visible—ours is on the door to the garage.
+- You’ll know it’s working when you skip a week and miss it.
+- Use colors, magnets, or anything to make it a little more fun.
+
+
+This kanban didn’t just help us keep track of dinners and karate—it helped us align, collaborate, and stay connected during a time of big change. 220/221. Whatever it takes.
