@@ -1,83 +1,98 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
 ---
 
 <Layout title="About Ben van Glabbeek">
-  <article style="max-width: 700px; margin: 2rem auto; line-height: 1.8;">
-    <h1>Hi, I'm Ben van Glabbeek</h1>
+  <article class="about-container">
+    <h1 class="about-title">Hi, I'm Ben van Glabbeek</h1>
 
     <img
       src="/images/ben-portrait.jpg"
       alt="Ben van Glabbeek"
-      style="float: right; width: 250px; height: auto; border-radius: 8px; margin: 0 0 1.5rem 1.5rem;"
+      class="about-portrait"
     />
 
-    <p>
-      I’m a business and technology transformation leader based in Atlanta, GA, with a deep background in Agile operating models, enterprise modernization, and organizational change. I’ve spent over two decades helping companies work smarter, ship faster, and build cultures that actually enjoy showing up on Monday.
-    </p>
+    <div class="about-section">
+      <p>
+        I'm a business and technology transformation leader based in Atlanta, GA, with a deep background in Agile operating models, enterprise modernization, and organizational change. I've spent over two decades helping companies work smarter, ship faster, and build cultures that actually enjoy showing up on Monday.
+      </p>
 
-    <p>
-      I've scaled distributed engineering organizations across the U.S., India, and LATAM, led transformations impacting 20,000+ employees, and helped Fortune 500 clients modernize cloud platforms, data systems, and software delivery lifecycles. I work closely with executive teams, sales, and delivery leaders to design scalable solutions that unify product, architecture, and operations.
-    </p>
+      <p>
+        I've scaled distributed engineering organizations across the U.S., India, and LATAM, led transformations impacting 20,000+ employees, and helped Fortune 500 clients modernize cloud platforms, data systems, and software delivery lifecycles. I work closely with executive teams, sales, and delivery leaders to design scalable solutions that unify product, architecture, and operations.
+      </p>
 
-    <p>
-      Most recently, I served as a Technology Director at Wizeline, leading global transformation initiatives and designing systems that help businesses move with speed and purpose. Before that, I was VP of Business Transformation at Fiserv, where I advised executive leadership on operating model design and post-M&A technology integration—work that impacted over 20,000 employees worldwide.
-    </p>
+      <p>
+        Most recently, I served as a Technology Director at Wizeline, leading global transformation initiatives and designing systems that help businesses move with speed and purpose. Before that, I was VP of Business Transformation at Fiserv, where I advised executive leadership on operating model design and post-M&A technology integration—work that impacted over 20,000 employees worldwide.
+      </p>
 
-    <p>
-      I’ve also held roles as an Agile coach, technology director, and startup founder, with experience across cloud, mobile, and enterprise systems. My approach is grounded in people-centered, outcomes-first thinking, always looking for ways to improve flow, reduce delivery friction, and spark a little joy in the process.
-    </p>
+      <p>
+        I've also held roles as an Agile coach, technology director, and startup founder, with experience across cloud, mobile, and enterprise systems. My approach is grounded in people-centered, outcomes-first thinking, always looking for ways to improve flow, reduce delivery friction, and spark a little joy in the process.
+      </p>
+    </div>
 
-    <h2>What I Believe</h2>
-    <ul>
-      <li><strong>Better flow</strong> + joyful teams = sustainable value</li>
-      <li>Strategy is only as good as the system that supports it</li>
-      <li>Change sticks when it’s co-created, not dictated</li>
-    </ul>
+    <div class="about-section">
+      <h2>What I Believe</h2>
+      <ul>
+        <li><strong>Better flow</strong> + joyful teams = sustainable value</li>
+        <li>Strategy is only as good as the system that supports it</li>
+        <li>Change sticks when it's co-created, not dictated</li>
+      </ul>
+    </div>
 
-    <h2>My Philosophy</h2>
-    <p>
-      In both technology and leadership, I believe great outcomes come from four essential ingredients: <strong>Flow, Quality, Joy, and Value</strong>. That philosophy shapes how I lead transformations, coach teams, and support young leaders through Scouting.
-    </p>
-    <ul>
-      <li><strong>Flow:</strong> Reduce friction. Deliver continuously. Design systems that make work easier, not harder.</li>
-      <li><strong>Quality:</strong> Build it right the first time—and build the right thing.</li>
-      <li><strong>Joy:</strong> Create environments where people want to be. Joy fuels creativity, safety, and staying power.</li>
-      <li><strong>Value:</strong> Focus on what matters most to the people you're serving—not just what's easy to measure.</li>
-    </ul>
+    <div class="about-section">
+      <h2>My Philosophy</h2>
+      <p>
+        In both technology and leadership, I believe great outcomes come from four essential ingredients: <strong>Flow, Quality, Joy, and Value</strong>. That philosophy shapes how I lead transformations, coach teams, and support young leaders through Scouting.
+      </p>
+      <ul>
+        <li><strong>Flow:</strong> Reduce friction. Deliver continuously. Design systems that make work easier, not harder.</li>
+        <li><strong>Quality:</strong> Build it right the first time—and build the right thing.</li>
+        <li><strong>Joy:</strong> Create environments where people want to be. Joy fuels creativity, safety, and staying power.</li>
+        <li><strong>Value:</strong> Focus on what matters most to the people you're serving—not just what's easy to measure.</li>
+      </ul>
 
-    <p>
-      Transformation isn’t about adopting a framework or chasing a trend. It’s about unlearning what doesn’t serve you, running real experiments, and helping your people thrive. Whether it's launching an AI innovation lab or leading a Scout troop through the woods, I believe in learning by doing, staying curious, and always moving forward.
-    </p>
+      <p>
+        Transformation isn't about adopting a framework or chasing a trend. It's about unlearning what doesn't serve you, running real experiments, and helping your people thrive. Whether it's launching an AI innovation lab or leading a Scout troop through the woods, I believe in learning by doing, staying curious, and always moving forward.
+      </p>
+    </div>
 
-    <h2>Outside of Work</h2>
-    <p>
-      When I’m not helping organizations transform, I’m focused on building the next generation of leaders. I volunteer as the Scoutmaster for <strong>Troop 10</strong>, guiding youth through outdoor adventure, personal growth, and practical leadership.
-    </p>
+    <div class="about-section">
+      <h2>Outside of Work</h2>
+      <p>
+        When I'm not helping organizations transform, I'm focused on building the next generation of leaders. I volunteer as the Scoutmaster for <strong>Troop 10</strong>, guiding youth through outdoor adventure, personal growth, and practical leadership.
+      </p>
 
-    <p>We keep things simple, fun, and Scout-led—and I carry those same values into my work with teams and clients.</p>
+      <p>We keep things simple, fun, and Scout-led—and I carry those same values into my work with teams and clients.</p>
+    </div>
 
-    <h2>Highlights</h2>
-    <ul>
-      <li>Led enterprise transformations impacting 20,000+ employees</li>
-      <li>Re-architected delivery for a Fortune 500 to enable product-led funding</li>
-      <li>Reduced defects by 30% and time-to-market by 50% with new delivery models</li>
-      <li>Built and scaled an AI Innovation Unit and a 17-brand e-commerce platform</li>
-    </ul>
+    <div class="about-section">
+      <h2>Highlights</h2>
+      <ul>
+        <li>Led enterprise transformations impacting 20,000+ employees</li>
+        <li>Re-architected delivery for a Fortune 500 to enable product-led funding</li>
+        <li>Reduced defects by 30% and time-to-market by 50% with new delivery models</li>
+        <li>Built and scaled an AI Innovation Unit and a 17-brand e-commerce platform</li>
+      </ul>
+    </div>
 
-    <h2>Core Skills</h2>
-    <ul>
-      <li>Enterprise & Digital Transformation</li>
-      <li>Lean Workflow Optimization & Automation</li>
-      <li>Agile Operating Model Design</li>
-      <li>Stakeholder Alignment & Executive Facilitation</li>
-      <li>Product Strategy & Value Stream Design</li>
-    </ul>
+    <div class="about-section">
+      <h2>Core Skills</h2>
+      <ul>
+        <li>Enterprise & Digital Transformation</li>
+        <li>Lean Workflow Optimization & Automation</li>
+        <li>Agile Operating Model Design</li>
+        <li>Stakeholder Alignment & Executive Facilitation</li>
+        <li>Product Strategy & Value Stream Design</li>
+      </ul>
+    </div>
 
-    <h2>Let’s Connect</h2>
-    <p>
-      Want to talk transformation, talent, or the trail? Reach out to me on
-      <a href="https://www.linkedin.com/in/ben-van-glabbeek" target="_blank">LinkedIn</a>.
-    </p>
+    <div class="about-section">
+      <h2>Let's Connect</h2>
+      <p>
+        Want to talk transformation, talent, or the trail? Reach out to me on
+        <a href="https://www.linkedin.com/in/ben-van-glabbeek" target="_blank">LinkedIn</a>.
+      </p>
+    </div>
   </article>
 </Layout>

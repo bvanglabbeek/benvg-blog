@@ -1,61 +1,32 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import '../styles/global.css';
 ---
 
 <Layout title="Digital">
-<section
-  style="
-    position: relative;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    min-height: 400px;
-    background-image: url('/images/transcen.digital.jpg');
-    background-size: cover;
-    background-position: center;
-  "
->
-  <div
-    style="
-      position: absolute;
-      inset: 0;
-      background: rgba(0, 0, 0, 0.6);
-    "
-  ></div>
+  <section class="hero-section">
+    <div class="hero-overlay"></div>
 
-  <div style="position: relative; z-index: 10; padding: 2rem;">
-    <h1 style="
-      color: #fff;
-      font-size: 2.75rem;
-      font-weight: 800;
-      text-shadow: 0 3px 12px rgba(0, 0, 0, 0.9);
-      margin: 0;
-    ">
-      Navigate the Future
-    </h1>
-    <p style="
-      margin-top: 0.75rem;
-      font-size: 1.25rem;
-      color: #fff;
-      text-shadow: 0 2px 6px rgba(0, 0, 0, 0.8);
-    ">
-      Design systems that deliver clarity, flow, and digital advantage
-    </p>
-  </div>
-</section>
-
+    <div class="hero-content">
+      <h1 class="hero-title">
+        Navigate the Future
+      </h1>
+      <p class="hero-subtitle">
+        Design systems that deliver clarity, flow, and digital advantage
+      </p>
+    </div>
+  </section>
 
   <section class="prose lg:prose-lg max-w-4xl mx-auto my-12 px-4">
     <p>
-      I help organizations unlock meaningful change through clarity, experimentation, and better ways of working. Digital transformation isn’t just about technology—it’s about designing systems that improve <strong>flow</strong>, deliver <strong>value</strong>, and make room for <strong>joy</strong> in the work itself.
+      I help organizations unlock meaningful change through clarity, experimentation, and better ways of working. Digital transformation isn't just about technology—it's about designing systems that improve <strong>flow</strong>, deliver <strong>value</strong>, and make room for <strong>joy</strong> in the work itself.
     </p>
 
     <p>
-      Whether you’re wrestling with outdated delivery models, planning for AI, or rethinking your org design, I partner with teams to turn aspiration into execution—without defaulting to buzzwords, off-the-shelf frameworks, or one-size-fits-all solutions.
+      Whether you're wrestling with outdated delivery models, planning for AI, or rethinking your org design, I partner with teams to turn aspiration into execution—without defaulting to buzzwords, off-the-shelf frameworks, or one-size-fits-all solutions.
     </p>
 
-    <p>Here’s how I help:</p>
+    <p>Here's how I help:</p>
 
     <ul class="list-disc list-inside space-y-2">
       <li><strong>Emerging Tech & AI Integration</strong> – Cut through the noise. Build an AI strategy grounded in real value and real people.</li>
@@ -70,10 +41,10 @@ import Layout from '../layouts/Layout.astro';
     </ul>
 
     <p>
-      Ready to rethink how your organization works? Let’s talk about how we can make change real—and lasting.
+      Ready to rethink how your organization works? Let's talk about how we can make change real—and lasting.
     </p>
 
-    <h2>Let’s Connect</h2>
+    <h2>Let's Connect</h2>
     <p>
       Want to talk transformation, talent, or anything else? Reach out to me on
       <a href="https://www.linkedin.com/in/ben-van-glabbeek" target="_blank">LinkedIn</a>.

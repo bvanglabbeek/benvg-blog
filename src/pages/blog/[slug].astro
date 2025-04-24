@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getEntryBySlug, getCollection } from 'astro:content';
+import '../../styles/global.css';
 
 export async function getStaticPaths() {
   const posts = await getCollection('blog');
@@ -21,9 +22,54 @@ const metadata = entry.data;
 ---
 
 <Layout title={metadata.title}>
-  <article style="max-width: 700px; margin: 2rem auto;">
-    <h1>{metadata.title}</h1>
-     <img src={metadata.image} alt={metadata.title} style="width: 100%; height: auto; object-fit: cover;" />
-    <Content />
+  <article class="blog-post">
+    <header class="blog-header">
+      <h1>{metadata.title}</h1>
+      {metadata.image && (
+        <img 
+          src={metadata.image} 
+          alt={metadata.title} 
+          class="blog-hero-image"
+        />
+      )}
+    </header>
+    <div class="prose">
+      <Content />
+    </div>
   </article>
 </Layout>
+
+<style>
+  .blog-post {
+    max-width: 800px;
+    margin: 2rem auto;
+    padding: 0 2rem;
+  }
+
+  .blog-header {
+    margin-bottom: 2rem;
+  }
+
+  .blog-header h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .blog-header h1::after {
+    content: '';
+    display: block;
+    width: 60px;
+    height: 4px;
+    background: var(--accent);
+    margin-top: 1rem;
+  }
+
+  .blog-hero-image {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+    border-radius: 12px;
+    margin-bottom: 2rem;
+  }
+</style>

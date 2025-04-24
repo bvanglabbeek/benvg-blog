@@ -1,22 +1,25 @@
 ---
 import Layout from '../layouts/Layout.astro';
 import { getCollection } from 'astro:content';
+import '../styles/global.css';
 
 // Load blog posts from content collection
-const posts = (await getCollection('blog'))
+const allPosts = (await getCollection('blog'))
   .filter(post => !post.data.tags?.includes('Appalachian Trail'))
   .sort((a, b) => new Date(b.data.pubDate).getTime() - new Date(a.data.pubDate).getTime());
 
-// Sidebar content (optional to make dynamic)
-const recentPosts = posts.slice(0, 5).map(p => ({
+// Get recent posts for main content (latest 6)
+const posts = allPosts.slice(0, 6);
+
+// Sidebar content
+const recentPosts = allPosts.slice(0, 5).map(p => ({
   title: p.data.title,
   slug: p.slug
 }));
 
-
 // Categories from tags
 const tagCount = {};
-posts.forEach(post => {
+allPosts.forEach(post => {
   (post.data.tags || []).forEach(tag => {
     tagCount[tag] = (tagCount[tag] || 0) + 1;
   });
@@ -30,18 +33,9 @@ const categories = Object.entries(tagCount).map(([name, count]) => ({ name, coun
       display: grid;
       grid-template-columns: 1fr;
       gap: 2rem;
-      max-width: 1200px;
+      max-width: 1400px;
       margin-inline: auto;
-    }
-
-    article {
-      padding: 1rem;
-    }
-
-    article img {
-      display: block;
-      margin: 2rem auto; /* auto left/right centers it */
-      max-width: 700px;
+      padding: 0 2rem;
     }
 
     aside {
@@ -50,75 +44,124 @@ const categories = Object.entries(tagCount).map(([name, count]) => ({ name, coun
 
     @media (min-width: 800px) {
       .page-grid {
-        grid-template-columns: 2fr 1fr;
-        max-width: 1200px;
+        grid-template-columns: 3fr 1fr;
       }
 
       aside {
         display: block;
       }
     }
+
+    .view-all-posts {
+      text-align: center;
+      margin-top: 3rem;
+    }
+
+    aside {
+      background-color: rgb(var(--gray-50));
+      border-radius: 12px;
+      padding: 2rem;
+      box-shadow: 0 2px 8px rgba(var(--black), 0.05);
+    }
+
+    .sidebar-section {
+      padding-bottom: 1.25rem;
+      border-bottom: 1px solid rgba(var(--black), 0.1);
+      margin-bottom: 1.25rem;
+    }
+
+    .sidebar-section:last-child {
+      padding-bottom: 0;
+      border-bottom: none;
+      margin-bottom: 0;
+    }
+
+    .sidebar-title {
+      font-size: 1.25rem;
+      font-weight: 600;
+      margin-bottom: 0.75rem;
+      color: rgb(var(--black));
+    }
+
+    .sidebar-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .sidebar-item {
+      margin-bottom: 0.5rem;
+    }
+
+    .sidebar-item:last-child {
+      margin-bottom: 0;
+    }
+
+    .sidebar-link {
+      color: rgb(var(--gray-600));
+      text-decoration: none;
+      transition: color 0.2s ease;
+      font-size: 0.95rem;
+      display: block;
+      padding: 0.25rem 0;
+    }
+
+    .sidebar-link:hover {
+      color: var(--accent);
+    }
   </style>
 
-    <div class="page-grid" style="margin-top: 2rem;">
-
+  <div class="page-grid">
     <!-- Blog Posts -->
-    <section style="display: flex; flex-direction: column; gap: 2rem;">
-      {posts.map(post => (
-        <article style="background: white; border: 1px solid #eee; border-radius: 12px; box-shadow: 0 4px 10px rgba(0,0,0,0.05);overflow: hidden; transition: box-shadow 0.2s ease;">
-          <a href={`/blog/${post.slug}`} style="text-decoration: none; color: inherit;">
-            {post.data.image && (
-              <img src={post.data.image} alt={post.data.title} style="width: 100%; height: auto; object-fit: cover;" />
-            )}
-            <div style="padding: 1.5rem;">
-              <h2 style="font-size: 1.4rem; margin-top: 0;">{post.data.title}</h2>
-              <p style="margin-top: 1rem;">{post.data.description}</p>
+    <div class="main-content">
+      <div class="blog-posts-grid">
+        {posts.map(post => (
+          <article class="article-card">
+            <a href={`/blog/${post.slug}`} class="article-link">
+              {post.data.image && (
+                <img src={post.data.image} alt={post.data.title} class="article-image" />
+              )}
+              <div class="article-content">
+                <h2 class="article-title">{post.data.title}</h2>
+                <p class="article-description">{post.data.description}</p>
 
-              <!-- Tags -->
-              {post.data.tags.map(tag => (
-                <a 
-                  href={`/category/${tag.toLowerCase().replace(/\s/g, '-')}`} 
-                  style="
-                    display: inline-block;
-                    background: #f3f4f6;
-                    color: #111;
-                    font-size: 0.75rem;
-                    padding: 4px 10px;
-                    border-radius: 9999px;
-                    margin-right: 0.5rem;
-                    text-decoration: none;
-                  "
-                >
-                  {tag}
-                </a>
-              ))}
+                <!-- Tags -->
+                {post.data.tags.map(tag => (
+                  <a 
+                    href={`/category/${tag.toLowerCase().replace(/\s/g, '-')}`} 
+                    class="tag"
+                  >
+                    {tag}
+                  </a>
+                ))}
 
-              <a href={`/blog/${post.slug}`} style="display: inline-block; margin-top: 1rem; background: #10b981; color: white; padding: 0.5rem 1rem; border-radius: 6px; font-weight: 600; font-size: 0.9rem;">Read More</a>
-            </div>
-          </a>
-        </article>
-      ))}
-    </section>
+                <a href={`/blog/${post.slug}`} class="button">Read More</a>
+              </div>
+            </a>
+          </article>
+        ))}
+      </div>
+    </div>
 
     <!-- Sidebar -->
     <aside>
-      <section style="margin-bottom: 2rem;">
-        <h3 style="font-size: 1.2rem;">Recent Posts</h3>
-        <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
+      <section class="sidebar-section">
+        <h3 class="sidebar-title">Recent Posts</h3>
+        <ul class="sidebar-list">
           {recentPosts.map(post => (
-            <li style="margin-bottom: 0.5rem;">
-              <a href={`/blog/${post.slug}`} style="color: #333;">{post.title}</a>
+            <li class="sidebar-item">
+              <a href={`/blog/${post.slug}`} class="sidebar-link">{post.title}</a>
             </li>
           ))}
         </ul>
       </section>
 
-      <section>
-        <h3 style="font-size: 1.2rem;">Categories</h3>
-        <ul style="list-style: none; padding: 0; font-size: 0.95rem;">
+      <section class="sidebar-section">
+        <h3 class="sidebar-title">Categories</h3>
+        <ul class="sidebar-list">
           {categories.map(cat => (
-            <li style="margin-bottom: 0.5rem;">
-              <a href={`/category/${cat.name.toLowerCase().replace(/\s/g, '-')}`} style="color: #333;">
+            <li class="sidebar-item">
+              <a href={`/category/${cat.name.toLowerCase().replace(/\s/g, '-')}`} class="sidebar-link">
                 {cat.name} ({cat.count})
               </a>
             </li>
