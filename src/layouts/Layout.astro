@@ -1,5 +1,5 @@
 ---
-const { title = "My Blog" } = Astro.props;
+const { title = "Ben van Glabbeek" } = Astro.props;
 ---
 
 <html lang="en">
@@ -7,7 +7,7 @@ const { title = "My Blog" } = Astro.props;
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{title}</title>
-
+    <link rel="icon" href="/favicon.ico" type="image/x-icon" />
     <!-- Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -34,7 +34,7 @@ const { title = "My Blog" } = Astro.props;
       }
 
       a {
-        color: var(--color-accent);
+        color: inherit;
         text-decoration: none;
       }
 
@@ -42,11 +42,14 @@ const { title = "My Blog" } = Astro.props;
         text-decoration: underline;
       }
 
+      article a {
+        color: #10b981;
+      }
+
       .site-header {
         background: #2d2f31;
         color: white;
-        padding: 2rem 1rem;
-        text-align: center;
+        padding: 1rem 1rem 2rem 4rem;
       }
 
       .site-header h1 {
@@ -56,8 +59,8 @@ const { title = "My Blog" } = Astro.props;
 
       .site-header p {
         font-style: italic;
-        margin: 0.5rem 0 1.5rem;
-        font-size: 1rem;
+        margin: 0 0 1rem;
+        font-size: 0.8rem;
         color: #ccc;
       }
 
@@ -102,7 +105,7 @@ const { title = "My Blog" } = Astro.props;
   <body>
     <header class="site-header">
       <h1>Ben van Glabbeek</h1>
-      <p>“If you want to build a ship... teach them to yearn for the vast and endless sea.” – Antoine de Saint-Exupéry</p>
+      <p>“If you want to build a ship, don’t drum up the people... vast and endless sea.” - Antoine de Saint-Exupéry</p>
       <nav class="nav-links">
         <a href="/">Home</a>
         <a href="/appalachian-trail">Appalachian Trail</a>
