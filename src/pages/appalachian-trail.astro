@@ -10,129 +10,19 @@ const trailPosts = (await getCollection('blog'))
 ---
 
 <Layout title="Trail Notes">
-  <style>
-    .page-grid {
-      display: grid;
-      grid-template-columns: 1fr;
-      gap: 2rem;
-      max-width: 1200px;
-      margin-inline: auto;
-      padding: 0 2rem;
-      margin-top: 2rem;
-    }
-
-    article {
-      background: white;
-      border: 1px solid #eee;
-      border-radius: 12px;
-      box-shadow: 0 4px 10px rgba(0,0,0,0.05);
-      overflow: hidden;
-      transition: box-shadow 0.2s ease;
-    }
-
-    article a {
-      text-decoration: none;
-      color: inherit;
-    }
-
-    .article-image {
-      width: 100%;
-      height: auto;
-      object-fit: cover;
-    }
-
-    .article-content {
-      padding: 1.5rem;
-    }
-
-    .article-title {
-      font-size: 1.4rem;
-      margin-top: 0;
-    }
-
-    .article-description {
-      margin-top: 1rem;
-    }
-
-    .read-more {
-      display: inline-block;
-      margin-top: 1rem;
-      background: var(--accent);
-      color: white;
-      padding: 0.5rem 1rem;
-      border-radius: 6px;
-      font-weight: 600;
-      font-size: 0.9rem;
-    }
-
-    aside {
-      display: none;
-    }
-
-    @media (min-width: 800px) {
-      .page-grid {
-        grid-template-columns: 2fr 1fr;
-        max-width: 1200px;
-      }
-
-      aside {
-        display: block;
-      }
-    }
-
-    aside {
-      background-color: rgb(var(--gray-50));
-      border-radius: 12px;
-      padding: 2rem;
-      box-shadow: 0 2px 8px rgba(var(--black), 0.05);
-      height: fit-content;
-    }
-
-    .sidebar-section {
-      padding-bottom: 1.25rem;
-      border-bottom: 1px solid rgba(var(--black), 0.1);
-      margin-bottom: 1.25rem;
-    }
-
-    .sidebar-section:last-child {
-      padding-bottom: 0;
-      border-bottom: none;
-      margin-bottom: 0;
-    }
-
-    .sidebar-title {
-      font-size: 1.25rem;
-      font-weight: 600;
-      margin-bottom: 0.75rem;
-      color: rgb(var(--black));
-    }
-
-    .sidebar-content {
-      font-size: 0.95rem;
-      line-height: 1.5;
-      color: rgb(var(--gray-600));
-    }
-
-    .trail-posts-grid {
-      display: flex;
-      flex-direction: column;
-      gap: 2rem;
-    }
-  </style>
-
   <div class="page-grid">
     <!-- Trail Posts -->
     <section class="trail-posts-grid">
       {trailPosts.map(post => (
-        <article>
-          <a href={`/blog/${post.slug}`}>
+        <article class="article-card">
+          <a href={`/blog/${post.slug}`} class="article-link">
             {post.data.image && (
               <img src={post.data.image} alt={post.data.title} class="article-image" />
             )}
             <div class="article-content">
               <h2 class="article-title">{post.data.title}</h2>
               <p class="article-description">{post.data.description}</p>
-              <a href={`/blog/${post.slug}`} class="read-more">Read More</a>
+              <a href={`/blog/${post.slug}`} class="button">Read More</a>
             </div>
           </a>
         </article>
