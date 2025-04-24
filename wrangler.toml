@@ -1,9 +1,0 @@
-name = "ze-worker-for-static-upload"
-compatibility_date = "2025-04-24"
-pages_build_output_dir = "./dist"
-
-[build]
-command = "npm run build"
-cwd = "."
-upload_format = "directory"
-directory = "dist"
