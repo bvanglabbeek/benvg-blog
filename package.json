@@ -30,12 +30,11 @@
   },
   "scripts": {
     "astro": "astro",
-    "build": "npm run generate:search && astro build",
-    "generate:search": "node ./tools/generateSearchIndex.js",
-    "check": "npm run generate:search && astro build && tsc && wrangler deploy --dry-run",
-    "deploy": "npm run generate:search && astro build && wrangler deploy",
+    "build": "astro build",
+    "check": "nastro build && tsc && wrangler deploy --dry-run",
+    "deploy": "astro build && wrangler deploy",
     "dev": "astro dev",
-    "preview": "npm run generate:search && astro build && wrangler dev",
+    "preview": "astro build && wrangler dev",
     "types": "wrangler types"
   },
   "type": "module"

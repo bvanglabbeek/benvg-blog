@@ -1,7 +1,5 @@
 ---
-const { title = "My Blog" } = Astro.props;
-
-import Search from '../components/Search.astro';
+const { title = "Ben van Glabbeek" } = Astro.props;
 ---
 
 <html lang="en">
@@ -51,8 +49,7 @@ import Search from '../components/Search.astro';
       .site-header {
         background: #2d2f31;
         color: white;
-        padding: 2rem 1rem;
-        text-align: center;
+        padding: 1rem 1rem 2rem 4rem;
       }
 
       .site-header h1 {
@@ -62,8 +59,8 @@ import Search from '../components/Search.astro';
 
       .site-header p {
         font-style: italic;
-        margin: 0.5rem 0 1.5rem;
-        font-size: 1rem;
+        margin: 0 0 1rem;
+        font-size: 0.8rem;
         color: #ccc;
       }
 
@@ -108,18 +105,13 @@ import Search from '../components/Search.astro';
   <body>
     <header class="site-header">
       <h1>Ben van Glabbeek</h1>
-      <p>“If you want to build a ship... teach them to yearn for the vast and endless sea.” – Antoine de Saint-Exupéry</p>
+      <p>“If you want to build a ship, don’t drum up the people... vast and endless sea.” - Antoine de Saint-Exupéry</p>
       <nav class="nav-links">
         <a href="/">Home</a>
         <a href="/appalachian-trail">Appalachian Trail</a>
         <a href="/transcen-digital">Transcen.Digital</a>
         <a href="/about">About Me</a>
       </nav>
-
-      <div style="margin-top: 1rem;">
-        <Search />
-      </div>
-
     </header>
 
     <main>

@@ -25,7 +25,33 @@ const categories = Object.entries(tagCount).map(([name, count]) => ({ name, coun
 ---
 
 <Layout title="Ben van Glabbeek">
-  <div style="display: grid; grid-template-columns: 3fr 1fr; gap: 3rem; margin-top: 2rem;">
+  <style>
+    .page-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 800px;
+      margin-inline: auto;
+    }
+
+
+    aside {
+      display: none;
+    }
+
+    @media (min-width: 800px) {
+      .page-grid {
+        grid-template-columns: 3fr 1fr;
+        max-width: 1200px;
+      }
+
+      aside {
+        display: block;
+      }
+    }
+  </style>
+
+    <div class="page-grid" style="margin-top: 2rem;">
 
     <!-- Blog Posts -->
     <section style="display: flex; flex-direction: column; gap: 2rem;">
