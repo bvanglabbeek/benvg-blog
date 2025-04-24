@@ -1,6 +1,6 @@
 ---
 title: "The Appalachian Trail - Our First Segment"
-description: "A father-son journey begins on the Appalachian Trail—starting with 20 miles of lessons, laughter, and a love for the woods."
+description: "At the tender age of 13, the whispering call of the Appalachian Trail beckoned me after reading about it in Scouts. This 2,100-mile titan, a winding path stretching from Georgia to Maine, became an impossible dream in my Oklahoma childhood. Now, years later and nestled in Atlanta’s hustle, my son, Miles, and I are answering..."
 pubDate: "2023-07-15"
 author: "Ben VG"
 tags: ["Appalachian Trail"]
@@ -32,7 +32,11 @@ Our next challenge: carrying backpacks loaded with 20–30 lbs. of gear for a 4-
 
 The Appalachian Trail can be a harsh master, offering steep ascents and descents, with fleeting moments of flat terrain acting as a merciful reprieve. The first segment was tough, as we struggled to adapt to the weight of our packs under the hot, humid conditions. We only had to go 6 miles, but they were grueling to our camp at Justus Creek. However, upon reaching camp, we were greeted by the sound of a babbling, spring-fed creek. We soaked our feet in the cool water and recharged before making dinner. Dinner was nothing special—just freeze-dried pasta. We capped our evening with rounds of cards. Miles is the luckiest card player, and after a few full houses, I decided to sleep off my losing streak.
 
+<center>
+
 ![Camp at Justus Creek](/blog-images/camp-at-justus-creek.jpg)
+
+</center>
 
 The evening was dark—no moon, no stars—pitch black. It was comforting and a bit freaky at the same time. If it weren’t for the sweet sound of planes landing in ATL, we’d feel truly isolated. The night passed in chunks, marked by bathroom breaks and the restless rolling for the perfect spot on the air mattress.
 
