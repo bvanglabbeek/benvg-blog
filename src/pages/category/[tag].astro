@@ -56,31 +56,40 @@ const categories = Object.entries(tagCount).map(([name, count]) => ({ name, coun
 
 <Layout title={`Posts tagged: ${readableTag}`}>
 
-    <style>
-      .page-grid {
-        display: grid;
-        grid-template-columns: 1fr;
-        gap: 2rem;
-        max-width: 800px;
-        margin-inline: auto;
-      }
+  <style>
+    .page-grid {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 2rem;
+      max-width: 1200px;
+      margin-inline: auto;
+    }
 
+    article {
+      padding: 1rem;
+    }
+
+    article img {
+      display: block;
+      margin: 2rem auto; /* auto left/right centers it */
+      max-width: 700px;
+    }
+
+    aside {
+      display: none;
+    }
+
+    @media (min-width: 800px) {
+      .page-grid {
+        grid-template-columns: 2fr 1fr;
+        max-width: 1200px;
+      }
 
       aside {
-        display: none;
+        display: block;
       }
-
-      @media (min-width: 800px) {
-        .page-grid {
-          grid-template-columns: 3fr 1fr;
-          max-width: 1200px;
-        }
-
-        aside {
-          display: block;
-        }
-      }
-    </style>
+    }
+  </style>
 
     <div class="page-grid" style="margin-top: 2rem;">
     <!-- Main content -->
