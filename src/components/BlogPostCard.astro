@@ -1,0 +1,47 @@
+---
+interface Props {
+  post: {
+    slug: string;
+    data: {
+      title: string;
+      description: string;
+      image?: string;
+      tags?: string[];
+    };
+  };
+}
+
+const { post } = Astro.props;
+---
+
+<article class="article-card">
+  <a href={`/blog/${post.slug}`} class="article-link">
+    {post.data.image && (
+      <img 
+        src={post.data.image} 
+        alt={post.data.title} 
+        class="article-image"
+        loading="lazy"
+      />
+    )}
+    <div class="article-content">
+      <h2 class="article-title">{post.data.title}</h2>
+      <p class="article-description">{post.data.description}</p>
+
+      {post.data.tags && (
+        <div class="article-tags">
+          {post.data.tags.map(tag => (
+            <a 
+              href={`/category/${tag.toLowerCase().replace(/\s/g, '-')}`} 
+              class="tag"
+            >
+              {tag}
+            </a>
+          ))}
+        </div>
+      )}
+
+      <a href={`/blog/${post.slug}`} class="button">Read More</a>
+    </div>
+  </a>
+</article> 

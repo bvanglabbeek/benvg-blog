@@ -1,0 +1,30 @@
+---
+import { NAV_ITEMS } from '../consts';
+
+interface Props {
+  title?: string;
+  quote?: string;
+}
+
+const { title = "Ben van Glabbeek", quote = "'If you want to build a ship... teach them to yearn for the vast and endless sea' - Antoine de Saint-Exupéry" } = Astro.props;
+---
+
+<header class="site-header">
+  <div class="header-content">
+    <div class="header-text">
+      <h1>{title}</h1>
+      <p class="header-quote">{quote}</p>
+    </div>
+  </div>
+  <nav>
+    <ul class="nav-links">
+      {NAV_ITEMS.map(({ title: linkTitle, path }) => (
+        <li>
+          <a href={path} class:list={['nav-link', { active: Astro.url.pathname === path }]}>
+            {linkTitle}
+          </a>
+        </li>
+      ))}
+    </ul>
+  </nav>
+</header> 

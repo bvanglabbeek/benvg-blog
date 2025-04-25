@@ -1,0 +1,34 @@
+---
+interface Props {
+  recentPosts: Array<{ title: string; slug: string }>;
+  categories: Array<{ name: string; count: number }>;
+}
+
+const { recentPosts, categories } = Astro.props;
+---
+
+<aside>
+  <section class="sidebar-section">
+    <h3 class="sidebar-title">Recent Posts</h3>
+    <ul class="sidebar-list">
+      {recentPosts.map(post => (
+        <li class="sidebar-item">
+          <a href={`/blog/${post.slug}`} class="sidebar-link">{post.title}</a>
+        </li>
+      ))}
+    </ul>
+  </section>
+
+  <section class="sidebar-section">
+    <h3 class="sidebar-title">Categories</h3>
+    <ul class="sidebar-list">
+      {categories.map(cat => (
+        <li class="sidebar-item">
+          <a href={`/category/${cat.name.toLowerCase().replace(/\s/g, '-')}`} class="sidebar-link">
+            {cat.name} ({cat.count})
+          </a>
+        </li>
+      ))}
+    </ul>
+  </section>
+</aside> 

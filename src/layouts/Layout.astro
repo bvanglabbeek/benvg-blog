@@ -1,8 +1,31 @@
 ---
-const { title = "Ben van Glabbeek" } = Astro.props;
+import { SITE_TITLE, SITE_DESCRIPTION, SITE_URL, SITE_LANGUAGE, SITE_LOCALE, DEFAULT_OG_IMAGE } from '../consts';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+import BackToTop from '../components/BackToTop.astro';
+import '../styles/global.css';
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: string;
+  type?: 'website' | 'article';
+  canonicalURL?: string;
+}
+
+const {
+  title = SITE_TITLE,
+  description = SITE_DESCRIPTION,
+  image = DEFAULT_OG_IMAGE,
+  type = 'website',
+  canonicalURL = Astro.url.href,
+} = Astro.props;
+
+const formattedTitle = title === SITE_TITLE ? title : `${title} | ${SITE_TITLE}`;
 ---
 
-<html lang="en">
+<!DOCTYPE html>
+<html lang={SITE_LANGUAGE}>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -15,35 +38,15 @@ const { title = "Ben van Glabbeek" } = Astro.props;
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap"
       rel="stylesheet"
     />
-
-    <style is:global>
-      :root {
-        --font-body: 'Inter', sans-serif;
-        --color-bg: #ffffff;
-        --color-text: #222;
-        --color-accent: #10b981;
-        --max-width: 1400px;
-      }
-    </style>
   </head>
   <body>
-    <header class="site-header">
-      <h1>Ben van Glabbeek</h1>
-      <p>"If you want to build a ship... teach them to yearn for the vast and endless sea" - Antoine de Saint-Exupéry</p>
-      <nav class="nav-links">
-        <a href="/">Home</a>
-        <a href="/appalachian-trail">Appalachian Trail</a>
-        <a href="/transcen-digital">Transcen.Digital</a>
-        <a href="/about">About Me</a>
-      </nav>
-    </header>
-
-    <main>
-      <slot />
-    </main>
-
-    <footer class="site-footer">
-      &copy; {new Date().getFullYear()} – benvg.com
-    </footer>
+    <div class="site-container">
+      <Header />
+      <main>
+        <slot />
+      </main>
+      <Footer />
+    </div>
+    <BackToTop />
   </body>
 </html>

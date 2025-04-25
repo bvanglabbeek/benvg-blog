@@ -1,0 +1,23 @@
+---
+import { SOCIAL_LINKS } from '../consts';
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="site-footer">
+  <div class="footer-content">
+    <p class="copyright">
+      © {currentYear} Ben van Glabbeek. All rights reserved.
+    </p>
+    <div class="social-links">
+      <a 
+        href={SOCIAL_LINKS.linkedin}
+        target="_blank"
+        rel="noopener noreferrer"
+        class="social-link"
+        aria-label="Connect on LinkedIn"
+      >
+        LinkedIn
+      </a>
+    </div>
+  </div>
+</footer> 
