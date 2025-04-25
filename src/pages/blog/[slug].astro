@@ -1,6 +1,7 @@
 ---
 import Layout from '../../layouts/Layout.astro';
 import { getEntryBySlug, getCollection } from 'astro:content';
+import BlogSidebar from '../../components/BlogSidebar.astro';
 import '../../styles/global.css';
 
 export async function getStaticPaths() {
@@ -21,20 +22,53 @@ const { Content } = await entry.render();
 const metadata = entry.data;
 ---
 
-<Layout title={metadata.title}>
-  <article class="blog-post">
-    <header class="blog-header">
-      <h1>{metadata.title}</h1>
-      {metadata.image && (
-        <img 
-          src={metadata.image} 
-          alt={metadata.title} 
-          class="blog-hero-image"
-        />
-      )}
-    </header>
-    <div class="prose">
-      <Content />
-    </div>
-  </article>
+<Layout title={metadata.title} description={metadata.description} image={metadata.image}>
+  <div class="blog-container">
+    <article class="blog-post">
+      <header class="blog-header">
+        <h1>{metadata.title}</h1>
+        {metadata.image && (
+          <img 
+            src={metadata.image} 
+            alt={metadata.title} 
+            class="blog-hero-image"
+          />
+        )}
+      </header>
+      <div class="blog-content prose">
+        <Content />
+      </div>
+    </article>
+    <BlogSidebar />
+  </div>
 </Layout>
+
+<style>
+  .blog-container {
+    display: grid;
+    grid-template-columns: 1fr 300px;
+    gap: 2rem;
+    max-width: var(--max-width);
+    margin: 0 auto;
+    padding: 2rem var(--side-padding);
+  }
+
+  .blog-post {
+    width: 100%;
+    max-width: 800px;
+  }
+
+  .blog-meta {
+    display: flex;
+    gap: 1rem;
+    color: var(--text-muted);
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 768px) {
+    .blog-container {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>
