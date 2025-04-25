@@ -22,90 +22,14 @@ const { title = "Ben van Glabbeek" } = Astro.props;
         --color-bg: #ffffff;
         --color-text: #222;
         --color-accent: #10b981;
-        --max-width: 1200px;
-      }
-
-      body {
-        margin: 0;
-        font-family: var(--font-body);
-        background: var(--color-bg);
-        color: var(--color-text);
-        line-height: 1.6;
-      }
-
-      a {
-        color: inherit;
-        text-decoration: none;
-      }
-
-      a:hover {
-        text-decoration: underline;
-      }
-
-      article a {
-        color: #10b981;
-      }
-
-      .site-header {
-        background: #2d2f31;
-        color: white;
-        padding: 1rem 1rem 2rem 4rem;
-      }
-
-      .site-header h1 {
-        margin: 0;
-        font-size: 2rem;
-      }
-
-      .site-header p {
-        font-style: italic;
-        margin: 0 0 1rem;
-        font-size: 0.8rem;
-        color: #ccc;
-      }
-
-      .nav-links {
-        display: flex;
-        justify-content: center;
-        flex-wrap: wrap;
-        gap: 1.5rem;
-        font-size: 1rem;
-        margin-top: 1rem;
-      }
-
-      .nav-links a {
-        color: white;
-        text-decoration: underline;
-      }
-
-      article img {
-        max-width: 100%;
-        height: auto;
-        margin: 1.5rem 0;
-        display: block;
-        object-fit: contain;
-        max-height: 600px; 
-      }
-
-      main {
-        max-width: var(--max-width);
-        margin: 2rem auto;
-        padding: 0 1rem;
-      }
-
-      footer {
-        text-align: center;
-        font-size: 0.875rem;
-        color: #999;
-        margin-top: 3rem;
-        padding-bottom: 2rem;
+        --max-width: 1400px;
       }
     </style>
   </head>
   <body>
     <header class="site-header">
       <h1>Ben van Glabbeek</h1>
-      <p>“If you want to build a ship, don’t drum up the people... vast and endless sea.” - Antoine de Saint-Exupéry</p>
+      <p>"If you want to build a ship... teach them to yearn for the vast and endless sea" - Antoine de Saint-Exupéry</p>
       <nav class="nav-links">
         <a href="/">Home</a>
         <a href="/appalachian-trail">Appalachian Trail</a>
@@ -118,7 +42,7 @@ const { title = "Ben van Glabbeek" } = Astro.props;
       <slot />
     </main>
 
-    <footer>
+    <footer class="site-footer">
       &copy; {new Date().getFullYear()} – benvg.com
     </footer>
   </body>
