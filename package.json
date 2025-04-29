@@ -1,8 +1,8 @@
 {
   "name": "benvg-blog",
-  "description": "Build a personal website, blog, or portfolio with Astro.",
+  "description": "My personal website and blog.",
   "cloudflare": {
-    "label": "Astro Framework Starter",
+    "label": "Benvg Blog",
     "products": [
       "Workers"
     ],
@@ -26,6 +26,8 @@
     "typescript": "5.8.2"
   },
   "devDependencies": {
+    "happy-dom": "^17.4.4",
+    "playwright": "^1.52.0",
     "wrangler": "4.7.0"
   },
   "scripts": {
@@ -35,7 +37,8 @@
     "deploy": "astro build && wrangler deploy",
     "dev": "astro dev",
     "preview": "astro build && wrangler dev",
-    "types": "wrangler types"
+    "types": "wrangler types",
+    "test:e2e": "playwright test"
   },
   "type": "module"
 }
