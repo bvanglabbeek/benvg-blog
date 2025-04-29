@@ -7,7 +7,7 @@ export const SITE_DESCRIPTION = "Personal blog and portfolio of Ben van Glabbeek
 export const SITE_URL = "https://benvglabbeek.com";
 
 // Social media
-export const LINKEDIN_HANDLE = "bvanglabbeek";
+export const LINKEDIN_HANDLE = "ben-van-glabbeek/";
 
 // Navigation
 export const NAV_ITEMS = [
@@ -19,7 +19,7 @@ export const NAV_ITEMS = [
 
 // Social links
 export const SOCIAL_LINKS = {
-  linkedin: "https://linkedin.com/in/bvanglabbeek"
+  linkedin: "https://linkedin.com/in/ben-van-glabbeek/"
 };
 
 // Blog settings
