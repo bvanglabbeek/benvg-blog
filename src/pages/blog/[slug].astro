@@ -28,11 +28,7 @@ const metadata = entry.data;
       <header class="blog-header">
         <h1>{metadata.title}</h1>
         {metadata.image && (
-          <img 
-            src={metadata.image} 
-            alt={metadata.title} 
-            class="blog-hero-image"
-          />
+          <img src={metadata.image} alt={metadata.title} class="blog-hero-image"/>
         )}
       </header>
       <div class="blog-content prose">

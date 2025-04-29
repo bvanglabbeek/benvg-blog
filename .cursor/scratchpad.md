@@ -40,6 +40,19 @@ The user is experiencing issues with image display on a blog post detail page. T
 - [x] Implement fixes for hero image height and hero section width
 - [x] Implement fix for .hero-section width and alignment
 
+# Planner: New Issues Identified (Header Quote & Article Centering)
+
+## Issues
+1. The quote under the name (header-quote) is too large and wraps awkwardly on smaller screens.
+2. The article is not centered on the page at certain viewport sizes.
+
+## Selected Solutions
+- **Header Quote:** Option 1 — Reduce the font size of `.header-quote` on smaller screens using a media query.
+- **Article Centering:** Option 1 — Ensure the article container uses `margin: 0 auto` and a `max-width` that matches the design intent.
+
+## Next Steps
+- Switch to executor mode and implement the selected fixes.
+
 # Executor's Feedback or Assistance Requests
 
 - CSS refactor complete: unified .blog-hero-image and inline img styles for responsiveness and consistency. Removed duplicate/conflicting .blog-hero-image rule. Added global img rule.
