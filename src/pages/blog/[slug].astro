@@ -22,7 +22,7 @@ const { Content } = await entry.render();
 const metadata = entry.data;
 ---
 
-<Layout title={metadata.title} description={metadata.description} image={metadata.image}>
+<Layout title={"BenVG | " + metadata.title} description={metadata.description} image={metadata.image}>
   <div class="blog-container">
     <article class="blog-post">
       <header class="blog-header">
