@@ -11,6 +11,7 @@ let count = 0;
 if (fs.existsSync(blogDir)) {
     const blogFiles = fs.readdirSync(blogDir).filter(f => f.endsWith('.md') || f.endsWith('.mdx'));
     blogSlugs = blogFiles.map(f => f.replace(/\.md$/, '').replace(/\.mdx$/, ''));
+
 }
 
 test.describe('All Blog Posts', () => {
