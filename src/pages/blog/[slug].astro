@@ -43,32 +43,3 @@ const metadata = entry.data;
   </div>
 </Layout>
 
-<style>
-  .blog-container {
-    display: grid;
-    grid-template-columns: 1fr 300px;
-    gap: 2rem;
-    max-width: var(--max-width);
-    margin: 0 auto;
-    padding: 2rem var(--side-padding);
-  }
-
-  .blog-post {
-    width: 100%;
-    max-width: 800px;
-  }
-
-  .blog-meta {
-    display: flex;
-    gap: 1rem;
-    color: var(--text-muted);
-    font-size: 0.9rem;
-    margin-bottom: 1.5rem;
-  }
-
-  @media (max-width: 768px) {
-    .blog-container {
-      grid-template-columns: 1fr;
-    }
-  }
-</style>
