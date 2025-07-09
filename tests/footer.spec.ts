@@ -5,6 +5,6 @@ test.describe('Footer', () => {
     await page.goto('/');
     const linkedin = await page.getByRole('link', { name: /linkedin/i });
     await expect(linkedin).toBeVisible();
-    await expect(linkedin).toHaveAttribute('href', 'https://linkedin.com/in/bvanglabbeek');
+    await expect(linkedin).toHaveAttribute('href', 'https://linkedin.com/in/ben-van-glabbeek/');
   });
 }); 

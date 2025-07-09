@@ -48,7 +48,11 @@
     "test:e2e": "playwright test",
     "test": "vitest",
     "lint:css": "stylelint \"src/**/*.css\"",
-    "lint:css:fix": "stylelint \"src/**/*.css\" --fix"
+    "lint:css:fix": "stylelint \"src/**/*.css\" --fix",
+    "deploy:status": "node scripts/deploy-monitor.js status",
+    "deploy:logs": "node scripts/deploy-monitor.js logs",
+    "deploy:url": "node scripts/deploy-monitor.js url",
+    "deploy:monitor": "node scripts/deploy-monitor.js"
   },
   "type": "module"
 }
