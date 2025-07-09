@@ -1,6 +1,6 @@
 import { describe, it, expect, vi } from 'vitest';
-import { GET } from './rss.xml.js';
-import { mockBlogPosts, mockContext } from '../test/mocks';
+import { GET } from '../../src/pages/rss.xml.js';
+import { mockBlogPosts, mockContext } from '../../src/test/mocks';
 
 vi.mock('@astrojs/rss', () => ({
   default: vi.fn().mockImplementation((config) => ({

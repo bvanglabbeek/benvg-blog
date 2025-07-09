@@ -13,7 +13,7 @@ import {
   DEFAULT_OG_IMAGE,
   SITE_LANGUAGE,
   SITE_LOCALE,
-} from './consts';
+} from '../../src/consts';
 
 describe('Site Constants', () => {
   describe('Site metadata', () => {

@@ -7,7 +7,7 @@ vi.mock('astro:content', () => ({
   z: z,
 }));
 
-import { collections } from './config';
+import { collections } from '../../src/content/config';
 
 describe('Content Collections', () => {
   describe('Blog collection schema', () => {
